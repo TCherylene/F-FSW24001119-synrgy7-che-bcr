@@ -1,0 +1,72 @@
+/* Navbar */
+.navbar__background {
+  background: #f1f3ff;
+}
+.navbar .container-fluid {
+  max-width: 1200px;
+}
+
+/* Hero */
+section.hero__background {
+  background: #f1f3ff;
+}
+
+.section__container--max-width {
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section__container--height-30 {
+  height: 100%;
+  min-height: 30vh;
+}
+
+
+.section__container--height-75 {
+  height: 100%;
+  min-height: 75vh;
+}
+
+/* Our Services */
+.our-services__list {
+  list-style-type: none;
+}
+
+.our-services__list--icon {
+  color: var(--primary);
+  padding: 0.5rem;
+  background-color: #cfd4ed;
+  width: 32px;
+  height: 32px;
+}
+
+/* Why Us */
+.why-us__icon {
+  width: 36px;
+  height: 36px;
+  background-color: black;
+  border-radius: 100%;
+}
+
+/* CTA */
+.cta__background {
+  background: var(--bs-primary);
+  min-height: 50vh;
+}
+/* Footer */
+.footer__list {
+  list-style-type: none;
+}
+
+.footer__list a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer__icon {
+  color: white;
+  background-color: var(--bs-primary);
+  border-radius: 100%;
+  padding: 0.5rem;
+}
