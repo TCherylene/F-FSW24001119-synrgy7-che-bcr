@@ -22,7 +22,6 @@ section.hero__background {
   min-height: 30vh;
 }
 
-
 .section__container--height-75 {
   height: 100%;
   min-height: 75vh;
@@ -47,6 +46,11 @@ section.hero__background {
   height: 36px;
   background-color: black;
   border-radius: 100%;
+}
+
+/* Testimonials */
+.owl-carousel .owl-item {
+  transition: all 0.3s ease-in-out;
 }
 
 /* CTA */
