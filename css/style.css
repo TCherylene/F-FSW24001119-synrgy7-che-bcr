@@ -53,6 +53,46 @@ section.hero__background {
   transition: all 0.3s ease-in-out;
 }
 
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  background: var(--bs-white);
+  border-color: var(--bs-gray-500);
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  background: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+
+
+.testimonials__card--background {
+  background: #f1f3ff;
+}
+
+.testimonials__icons--star {
+  color: var(--bs-gray-400);
+}
+
+.testimonials__icons--star.active {
+  color: var(--bs-warning);
+}
+
+.testimonials__icons--chevron-left {
+  color: var(--bs-black);
+
+}
+
+.testimonials__icons--chevron-right {
+  color: var(--bs-white);
+}
+
 /* CTA */
 .cta__background {
   background: var(--bs-primary);

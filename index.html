@@ -8,21 +8,23 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/assets/bootstrap.min.css">
     <link rel="stylesheet" href="./css/colors.css">
-    <link rel="stylesheet" href="./css/style.css">
-    
+
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="./css/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="./css/assets/owl.theme.default.min.css">
-    
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
     <!-- Bootstrap Javascript  -->
     <script src="./js/assets/jquery.min.js"></script>
     <script src="./js/assets/popper.min.js"></script>
     <script src="./js/assets/bootstrap.min.js"></script>
-    
+
     <!-- Owl Carousel Javascript -->
     <script src="./js/assets/owl.carousel.min.js"></script>
     <script src="./js/owl-carousel.js"></script>
-    
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/70ee0c3ec7.js" crossorigin="anonymous"></script>
 
@@ -181,54 +183,198 @@
 
 
         <!-- Section 4: Testimonial -->
-        <!-- 
-            Contoh:
-            https://codepen.io/gatoledo1/pen/MWKpLNY
-            https://bbbootstrap.com/snippets/testimonial-carousel-slider-previous-and-next-preview-50691522
-            https://bbbootstrap.com/snippets/bootstrap-4-owl-carousel-for-user-testimonials-10735496
-        -->
         <section id="testimonial"
             class="section__container--height-75 px-3 d-flex flex-column align-items-center justify-content-center">
-            <h2 class="fs-4 fw-bolder ">
+            <h2 class="fs-4 fw-bolder  mb-4">
                 Testimonial
             </h2>
-            <p class="text-center">
+            <p class="text-center mb-4">
                 Berbagai review positif dari para pelanggan kami
             </p>
 
-            <div class="owl-carousel  owl-theme mt-5">
+            <!-- Owl Carousels -->
+            <div class="owl-carousel  owl-theme">
+                <!-- Testimonials 1 -->
                 <div class="item">
-                    <div class="bg-black w-100">
-                        <h4 class="text-white">1</h4>
+                    <div class="card testimonials__card--background border-0 shadow-sm mb-3 py-3">
+                        <div class="row g-2 justify-content-center">
+                            <!-- Foto Profil -->
+                            <div class="col-lg-2 px-2 my-auto">
+                                <img src="./img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..." style="max-width: 80px">
+                            </div>
+                            <!-- Teks -->
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <!-- Rating -->
+                                    <h5 class="card-title text-center text-lg-start mb-3">
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                    </h5>
+                                    <p class="card-text">Testimonial 1 - “Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
+                                        do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                    </p>
+                                    <p class="card-text fw-semibold">John Dee 32, Bromo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Testimonials 2 -->
                 <div class="item">
-                    <div class="bg-black w-100">
-                        <h4 class="text-white">2</h4>
+                    <div class="card testimonials__card--background border-0 shadow-sm mb-3 py-4">
+                        <div class="row g-2 justify-content-center">
+                            <!-- Foto Profil -->
+                            <div class="col-lg-2 px-2 my-auto">
+                                <img src="./img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..." style="max-width: 80px">
+                            </div>
+                            <!-- Teks -->
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <!-- Rating -->
+                                    <h5 class="card-title text-center text-lg-start mb-3">
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star"></i>
+                                    </h5>
+                                    <p class="card-text">Testimonial 2 - “Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
+                                        do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                    </p>
+                                    <p class="card-text fw-semibold">John Dee 32, Bromo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Testimonials 3 -->
                 <div class="item">
-                    <div class="bg-black w-100">
-                        <h4 class="text-white">3</h4>
+                    <div class="card testimonials__card--background border-0 shadow-sm mb-3 py-3">
+                        <div class="row g-2 justify-content-center">
+                            <!-- Foto Profil -->
+                            <div class="col-lg-2 px-2 my-auto">
+                                <img src="./img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..." style="max-width: 80px">
+                            </div>
+                            <!-- Teks -->
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <!-- Rating -->
+                                    <h5 class="card-title text-center text-lg-start mb-3">
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star"></i>
+                                    </h5>
+                                    <p class="card-text">Testimonial 3 - “Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
+                                        do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                    </p>
+                                    <p class="card-text fw-semibold">John Dee 32, Bromo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Testimonials 4 -->
                 <div class="item">
-                    <div class="bg-black w-100">
-                        <h4 class="text-white">4</h4>
+                    <div class="card testimonials__card--background border-0 shadow-sm mb-3 py-3">
+                        <div class="row g-2 justify-content-center">
+                            <!-- Foto Profil -->
+                            <div class="col-lg-2 px-2 my-auto">
+                                <img src="./img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..." style="max-width: 80px">
+                            </div>
+                            <!-- Teks -->
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <!-- Rating -->
+                                    <h5 class="card-title text-center text-lg-start mb-3">
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star"></i>
+                                    </h5>
+                                    <p class="card-text">Testimonial 4 - “Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
+                                        do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                    </p>
+                                    <p class="card-text fw-semibold">John Dee 32, Bromo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Testimonials 5 -->
                 <div class="item">
-                    <div class="bg-black w-100">
-                        <h4 class="text-white">5</h4>
+                    <div class="card testimonials__card--background border-0 shadow-sm mb-3 py-3">
+                        <div class="row g-2 justify-content-center">
+                            <!-- Foto Profil -->
+                            <div class="col-lg-2 px-2 my-auto">
+                                <img src="./img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..." style="max-width: 80px">
+                            </div>
+                            <!-- Teks -->
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <!-- Rating -->
+                                    <h5 class="card-title text-center text-lg-start mb-3">
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star"></i>
+                                    </h5>
+                                    <p class="card-text">Testimonial 5 - “Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
+                                        do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                    </p>
+                                    <p class="card-text fw-semibold">John Dee 32, Bromo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- Testimonials 6 -->
                 <div class="item">
-                    <div class="bg-black w-100">
-                        <h4 class="text-white">6</h4>
+                    <div class="card testimonials__card--background border-0 shadow-sm mb-3 py-3">
+                        <div class="row g-2 justify-content-center">
+                            <!-- Foto Profil -->
+                            <div class="col-lg-2 px-2 my-auto">
+                                <img src="./img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..." style="max-width: 80px">
+                            </div>
+                            <!-- Teks -->
+                            <div class="col-lg-8">
+                                <div class="card-body">
+                                    <!-- Rating -->
+                                    <h5 class="card-title text-center text-lg-start mb-3">
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star active"></i>
+                                        <i class="fa-solid fa-star testimonials__icons--star"></i>
+                                    </h5>
+                                    <p class="card-text">Testimonial 6 - “Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit, sed
+                                        do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod”
+                                    </p>
+                                    <p class="card-text fw-semibold">John Dee 32, Bromo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
 
