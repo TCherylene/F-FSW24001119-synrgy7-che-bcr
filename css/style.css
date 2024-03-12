@@ -27,6 +27,10 @@ section.hero__background {
   background: #f1f3ff;
 }
 
+.hero__text {
+  max-width: 600px;
+}
+
 /* Our Services */
 .our-services__list {
   list-style-type: none;
@@ -42,8 +46,8 @@ section.hero__background {
 
 /* Why Us */
 .why-us__icon {
-  width: 36px;
-  height: 36px;
+  max-width: 36px;
+  max-height: 36px;
   background-color: black;
   border-radius: 100%;
 }
@@ -71,6 +75,14 @@ section.hero__background {
   border-color: var(--bs-secondary);
 }
 
+.testimonials__icons--chevron-left {
+  color: var(--bs-black);
+
+}
+
+.testimonials__icons--chevron-right {
+  color: var(--bs-white);
+}
 
 .testimonials__card--background {
   background: #f1f3ff;
@@ -84,14 +96,6 @@ section.hero__background {
   color: var(--bs-warning);
 }
 
-.testimonials__icons--chevron-left {
-  color: var(--bs-black);
-
-}
-
-.testimonials__icons--chevron-right {
-  color: var(--bs-white);
-}
 
 /* CTA */
 .cta__background {
