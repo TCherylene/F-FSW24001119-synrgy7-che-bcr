@@ -19,22 +19,27 @@ section.hero__background {
 }
 
 /* Our Services */
+.our-services__image {
+  max-width: 80%;
+  height: auto;
+}
+
 .our-services__list {
   list-style-type: none;
 }
 
 .our-services__list--icon {
   color: var(--primary);
-  padding: 0.5rem;
+  padding: 0.3rem;
   background-color: #cfd4ed;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 /* Why Us */
 .why-us__icon {
-  max-width: 36px;
-  max-height: 36px;
+  max-width: 32px;
+  max-height: 32px;
   background-color: black;
   border-radius: 100%;
 }
@@ -52,21 +57,25 @@ section.hero__background {
   border: 1px solid black;
 }
 
-.owl-carousel .owl-nav button.owl-prev {
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
   background: var(--bs-white);
   border-color: var(--bs-gray-500);
 }
 
-.owl-carousel .owl-nav button.owl-next {
+.owl-carousel .owl-nav button.owl-prev:hover,
+.owl-carousel .owl-nav button.owl-next:hover {
   background: var(--bs-secondary);
   border-color: var(--bs-secondary);
 }
 
-.testimonials__icons--chevron-left {
+.testimonials__icons--chevron-left,
+.testimonials__icons--chevron-right {
   color: var(--bs-black);
 }
 
-.testimonials__icons--chevron-right {
+.owl-carousel .owl-nav button.owl-prev:hover .testimonials__icons--chevron-left,
+.owl-carousel .owl-nav button.owl-next:hover .testimonials__icons--chevron-right {
   color: var(--bs-white);
 }
 
