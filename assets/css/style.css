@@ -64,7 +64,6 @@ section.hero__background {
 
 .testimonials__icons--chevron-left {
   color: var(--bs-black);
-
 }
 
 .testimonials__icons--chevron-right {
@@ -82,7 +81,6 @@ section.hero__background {
 .testimonials__icons--star.active {
   color: var(--bs-warning);
 }
-
 
 /* CTA */
 .cta__background {

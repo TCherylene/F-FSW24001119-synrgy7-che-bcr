@@ -22,6 +22,6 @@ $(document).ready(function () {
             768: { items: 1 },
             991: { items: 2 },
             1200: { items: 2 }
-        }
+        },
     });
 });
