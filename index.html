@@ -39,14 +39,13 @@
                 Binar Car Rental
             </a>
             <!-- Navbar Toggler Mobile  -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Navbar -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar d-none d-lg-block">
                 <ul
                     class="w-100 h-100 d-flex gap-4 flex-column flex-lg-row justify-content-end align-items-center p-2 navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#our-services">Our Services</a></li>
@@ -56,6 +55,24 @@
                     <li class="nav-item"><a class="btn btn-secondary rounded-1" href="#">Register</a></li>
                 </ul>
             </div>
+
+            <!-- Navbar -->
+            <div class="d-block d-lg-none offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BCR</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item"><a class="nav-link text-black" href="#our-services">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link text-black" href="#why-us">Why Us</a></li>
+                        <li class="nav-item"><a class="nav-link text-black" href="#testimonial">Testimonial</a></li>
+                        <li class="nav-item"><a class="nav-link text-black" href="#faq">FAQ</a></li>
+                        <li class="nav-item"><a class="btn btn-secondary rounded-1" href="#">Register</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -64,10 +81,12 @@
         <section id="hero" class="hero__background overflow-hidden">
             <div class="container container-fluid pt-5">
                 <div class="row gy-3 align-items-center justify-content-between">
-                    <div class="col-12 col-lg-6 ps-2 hero__text">
+                    <div class="col-12 col-lg-6 my-auto pb-4">
                         <h1 class="fw-bolder">Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
-                        <p>Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga
-                            terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.</p>
+                        <p>
+                            Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga
+                            terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
+                        </p>
                         <a href="" class="btn btn-secondary rounded-1">Mulai Sewa Mobil</a>
                     </div>
 
@@ -80,7 +99,7 @@
         </section>
 
         <!-- Section 2: Our Services -->
-        <section id="our-services">
+        <section id="our-services" class="mt-5">
             <div class="container container-fluid">
                 <div class="row p-0 m-0 d-flex align-items-center justify-content-between">
                     <!-- Image -->
@@ -127,9 +146,9 @@
         </section>
 
         <!-- Section 3: Why Us -->
-        <section id="why-us">
+        <section id="why-us" class="mt-5">
             <div class="container container-fluid">
-                <div class="section__container--height-75 d-flex flex-column align-items-start justify-content-center">
+                <div class="d-flex flex-column align-items-start justify-content-center">
                     <h2 class="fs-4 fw-bolder align-self-center align-self-lg-start">
                         Why Us?
                     </h2>
@@ -142,7 +161,8 @@
                         <!-- Mobil Lengkap -->
                         <div class="card w-100 py-3 px-2">
                             <div class="card-body d-flex flex-column row-gap-3">
-                                <img class="why-us__icon p-2 bg-warning" src="./assets/img/icons/fi_thumbs-up.svg" alt="">
+                                <img class="why-us__icon p-2 bg-warning" src="./assets/img/icons/fi_thumbs-up.svg"
+                                    alt="">
                                 <h5 class="card-title fw-bold fs-6 p-0 m-0">Mobil Lengkap</h5>
                                 <p class="card-text">
                                     Tersedia banyak pilihan mobil, kondisi masih baru, bersih dan terawat
@@ -190,7 +210,7 @@
 
 
         <!-- Section 4: Testimonial -->
-        <section id="testimonial" class="px-3 d-flex flex-column align-items-center justify-content-center">
+        <section id="testimonial" class="mt-5 px-3 d-flex flex-column align-items-center justify-content-center">
 
             <h2 class="fs-4 fw-bolder  mb-4">
                 Testimonial
@@ -203,8 +223,8 @@
             <div class="owl-carousel  owl-theme">
                 <!-- Testimonials 1 -->
                 <div class="item">
-                    <div class="card testimonials__card--background border-0 shadow-sm py-3">
-                        <div class="row g-2 justify-content-center">
+                    <div class="card testimonials__card border-0 shadow-sm py-3">
+                        <div class="row g-2 justify-content-center my-auto">
                             <!-- Foto Profil -->
                             <div class="col-lg-2 px-2 my-auto">
                                 <img src="./assets/img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..."
@@ -235,8 +255,8 @@
                 </div>
                 <!-- Testimonials 2 -->
                 <div class="item">
-                    <div class="card testimonials__card--background border-0 shadow-sm py-4">
-                        <div class="row g-2 justify-content-center">
+                    <div class="card testimonials__card border-0 shadow-sm py-4">
+                        <d-flex class="row g-2 justify-content-center my-auto">
                             <!-- Foto Profil -->
                             <div class="col-lg-2 px-2 my-auto">
                                 <img src="./assets/img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..."
@@ -262,13 +282,13 @@
                                     <p class="card-text fw-semibold">John Dee 32, Bromo</p>
                                 </div>
                             </div>
-                        </div>
+                        </d-flex align-items-center div>
                     </div>
                 </div>
                 <!-- Testimonials 3 -->
                 <div class="item">
-                    <div class="card testimonials__card--background border-0 shadow-sm py-3">
-                        <div class="row g-2 justify-content-center">
+                    <div class="card testimonials__card border-0 shadow-sm py-3">
+                        <d-flex class="row g-2 justify-content-center my-auto">
                             <!-- Foto Profil -->
                             <div class="col-lg-2 px-2 my-auto">
                                 <img src="./assets/img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..."
@@ -294,13 +314,13 @@
                                     <p class="card-text fw-semibold">John Dee 32, Bromo</p>
                                 </div>
                             </div>
-                        </div>
+                        </d-flex align-items-center div>
                     </div>
                 </div>
                 <!-- Testimonials 4 -->
                 <div class="item">
-                    <div class="card testimonials__card--background border-0 shadow-sm py-3">
-                        <div class="row g-2 justify-content-center">
+                    <div class="card testimonials__card border-0 shadow-sm py-3">
+                        <d-flex class="row g-2 justify-content-center my-auto">
                             <!-- Foto Profil -->
                             <div class="col-lg-2 px-2 my-auto">
                                 <img src="./assets/img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..."
@@ -326,13 +346,13 @@
                                     <p class="card-text fw-semibold">John Dee 32, Bromo</p>
                                 </div>
                             </div>
-                        </div>
+                        </d-flex align-items-center div>
                     </div>
                 </div>
                 <!-- Testimonials 5 -->
                 <div class="item">
-                    <div class="card testimonials__card--background border-0 shadow-sm py-3">
-                        <div class="row g-2 justify-content-center">
+                    <div class="card testimonials__card border-0 shadow-sm py-3">
+                        <d-flex class="row g-2 justify-content-center my-auto">
                             <!-- Foto Profil -->
                             <div class="col-lg-2 px-2 my-auto">
                                 <img src="./assets/img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..."
@@ -358,13 +378,13 @@
                                     <p class="card-text fw-semibold">John Dee 32, Bromo</p>
                                 </div>
                             </div>
-                        </div>
+                        </d-flex align-items-center div>
                     </div>
                 </div>
                 <!-- Testimonials 6 -->
                 <div class="item">
-                    <div class="card testimonials__card--background border-0 shadow-sm py-3">
-                        <div class="row g-2 justify-content-center">
+                    <div class="card testimonials__card border-0 shadow-sm py-3">
+                        <d-flex class="row g-2 justify-content-center my-auto">
                             <!-- Foto Profil -->
                             <div class="col-lg-2 px-2 my-auto">
                                 <img src="./assets/img/photo-profile.png" class="w-100 mx-auto rounded-0" alt="..."
@@ -390,14 +410,14 @@
                                     <p class="card-text fw-semibold">John Dee 32, Bromo</p>
                                 </div>
                             </div>
-                        </div>
+                        </d-flex align-items-center div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Section 5: CTA -->
-        <section id="cta" class="section__container--height-75 d-flex justify-content-center align-items-center px-3">
+        <section id="cta" class="mt-5 d-flex justify-content-center align-items-center px-3">
             <div class="container container-fluid">
                 <div
                     class="cta__background w-100 d-flex flex-column justify-content-center align-items-center gap-3 p-5 rounded-3 text-white">
@@ -410,7 +430,7 @@
         </section>
 
         <!-- Section 6: FAQ -->
-        <section id="faq" class="py-5">
+        <section id="faq" class="my-5">
             <div class="container container-fluid">
                 <div class="row justify-content-between px-3">
                     <div class="col-12 col-lg-5">
@@ -550,7 +570,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="section__container--height-30 mt-4">
+    <footer class="mt-5 pb-3">
         <div class="container container-fluid">
             <div class="row gy-1">
                 <!-- Alamat / Contact -->

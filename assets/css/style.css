@@ -1,13 +1,3 @@
-.section__container--height-30 {
-  height: 100%;
-  min-height: 30vh;
-}
-
-.section__container--height-75 {
-  height: 100%;
-  min-height: 75vh;
-}
-
 /* Navbar */
 .navbar__background {
   background: #f1f3ff;
@@ -16,6 +6,11 @@
 /* Hero */
 section.hero__background {
   background: #f1f3ff;
+}
+
+/* Screen */
+.container--car {
+  margin-right: calc(7vw * -1);
 }
 
 /* Our Services */
@@ -75,12 +70,16 @@ section.hero__background {
 }
 
 .owl-carousel .owl-nav button.owl-prev:hover .testimonials__icons--chevron-left,
-.owl-carousel .owl-nav button.owl-next:hover .testimonials__icons--chevron-right {
+.owl-carousel
+  .owl-nav
+  button.owl-next:hover
+  .testimonials__icons--chevron-right {
   color: var(--bs-white);
 }
 
-.testimonials__card--background {
+.testimonials__card {
   background: #f1f3ff;
+  height: 350px;
 }
 
 .testimonials__icons--star {
@@ -111,4 +110,35 @@ section.hero__background {
   background-color: var(--bs-primary);
   border-radius: 100%;
   padding: 0.5rem;
+}
+
+/* Screen LG */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .container--car {
+    margin-right: calc(-9vw);
+  }
+}
+
+/* Screen MD */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .container--car {
+    margin-right: 0;
+    margin-left: calc(10vw + 25px);
+  }
+}
+
+/* Screen SM */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .container--car {
+    margin-right: 0;
+    margin-left: calc(10vw + 6px);
+  }
+}
+
+/* Screen XS */
+@media screen and (max-width: 575px) {
+  .container--car {
+    margin-right: 0;
+    margin-left: calc(6vw);
+  }
 }
