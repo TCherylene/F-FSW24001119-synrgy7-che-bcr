@@ -120,7 +120,6 @@ section.hero__background {
 }
 
 /* Screen LG */
-/* Screen SM */
 @media screen and (max-width: 992px) {
   #car-background {
     width: 95%;
@@ -128,6 +127,7 @@ section.hero__background {
   }
 }
 
+/* Screen XS */
 @media screen and (max-width: 576px) {
   .container--car {
     margin-left: 3%;
