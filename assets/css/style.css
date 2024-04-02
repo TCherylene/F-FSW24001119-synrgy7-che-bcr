@@ -9,8 +9,15 @@ section.hero__background {
 }
 
 /* Screen */
+#car-background {
+  width: 45%;
+  height: 50%;
+  background-color: var(--bs-primary);
+  border-radius: 60px 0 0 0;
+}
+
 .container--car {
-  margin-right: calc(7vw * -1);
+  margin-right: -8%;
 }
 
 /* Our Services */
@@ -113,32 +120,20 @@ section.hero__background {
 }
 
 /* Screen LG */
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  .container--car {
-    margin-right: calc(-9vw);
-  }
-}
-
-/* Screen MD */
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .container--car {
-    margin-right: 0;
-    margin-left: calc(10vw + 25px);
-  }
-}
-
 /* Screen SM */
-@media screen and (min-width: 576px) and (max-width: 767px) {
-  .container--car {
-    margin-right: 0;
-    margin-left: calc(10vw + 6px);
+@media screen and (max-width: 992px) {
+  #car-background {
+    width: 95%;
+    height: 30%;
   }
 }
 
-/* Screen XS */
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 576px) {
   .container--car {
-    margin-right: 0;
-    margin-left: calc(6vw);
+    margin-left: 3%;
+  }
+
+  #car-background {
+    height: 20%;
   }
 }
