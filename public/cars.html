@@ -2,57 +2,281 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="author" content="Sabrina" />
-  <meta name="description" content="Lorem ipsum dolor sit amet" />
-  <meta name="viewport"
-    content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
-  <title>Binar: Challenge 04</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Sabrina" />
+    <meta name="description" content="Lorem ipsum dolor sit amet" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>Binar: Challenge 04</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./css/colors.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-  <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-    integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./css/style.css" />
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
-  <button id="load-btn">Load</button>
-  <button id="clear-btn">Clear</button>
-  <div id="cars-container"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar__background navbar-expand-lg mx-auto">
+        <div class="container container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#"> Binar Car Rental </a>
+            <!-- Navbar Toggler Mobile  -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <!-- Bootstrap Javascript  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
+            <!-- Navbar -->
+            <div class="navbar d-none d-lg-block">
+                <ul
+                    class="w-100 h-100 d-flex gap-4 flex-column flex-lg-row justify-content-end align-items-center p-2 navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#our-services">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-us">Why Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonial">Testimonial</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary rounded-1" href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
 
-  <!-- Owl Carousel Javascript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="./scripts/owl-carousel.js"></script>
+            <!-- Navbar -->
+            <div class="d-block d-lg-none offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">BCR</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="#our-services">Our Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="#why-us">Why Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="#testimonial">Testimonial</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="#faq">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-secondary rounded-1" href="#">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/70ee0c3ec7.js" crossorigin="anonymous"></script>
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" class="hero__background position-relative overflow-hidden" style="min-height: 10rem">
+            <div class="container container-fluid pt-5">
+                <div class="row gy-3 align-items-center justify-content-between">
+                    <div class="col-12 col-lg-6 my-auto pb-4">
+                        <h1 class="fw-bolder">Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
+                        <p>
+                            Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga
+                            terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
+                        </p>
 
-  <!-- Example Javascript -->
-  <script type="text/javascript" src="./scripts/binar.js"></script>
-  <script type="text/javascript" src="./scripts/app.example.js"></script>
-  <script type="text/javascript" src="./scripts/car.example.js"></script>
-  <script type="text/javascript" src="./scripts/main.example.js"></script>
+                    </div>
+
+                    <div class="col-12 col-lg-6 z-1 container--car">
+                        <img src="./images/car-nobg.png" alt="car" class="w-100 ">
+                    </div>
+                </div>
+            </div>
+            <span class="position-absolute end-0 bottom-0 z-0" id="car-background"></span>
+        </section>
+
+        <!-- Filter -->
+        <section class="position-relative filter__container">
+            <div class="position-absolute top-0 start-50 translate-middle rounded-3 shadow p-4 w-75 z-3"
+                style="background-color:white;">
+
+                <div class="row">
+                    <div class="col-12 col-lg-10">
+                        <div class="row p-0 mb-3 mb-lg-0">
+                            <!-- Tipe Driver -->
+                            <div class="col-12 col-lg-3">
+                                <p class="mb-2 fw-lighter filter__font">Tipe Driver</p>
+                                <div class="filter__dropdown dropdown w-100">
+                                    <button type="button"
+                                        class="btn btn-outline text-start w-100 filter__button rounded-2"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="filter__text" data-value="-1">
+                                            Pilih Tipe Driver
+                                        </div>
+                                        <i class="fa-solid fa-chevron-down filter__icon"></i>
+                                    </button>
+                                    <ul class="filter__dropdown-menu dropdown-menu w-100">
+                                        <li class="filter__dropdown-item dropdown-item" data-value="1">
+                                            Dengan Sopir
+                                        </li>
+                                        <li class="filter__dropdown-item dropdown-item" data-value="2">
+                                            Tanpa Sopir
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Tanggal -->
+                            <div class="col-12 col-lg-3">
+                                <p class="mb-2 fw-lighter filter__font">Tanggal</p>
+                                <input class="form-control filter__form me-2 litepicker" placeholder="Pilih Tanggal"
+                                    type="date" name="date" id="litepicker">
+                            </div>
+
+                            <!-- Waktu Jemput -->
+                            <div class="col-12 col-lg-3">
+                                <p class="mb-2 fw-lighter filter__font">Waktu Jemput/Ambil</p>
+                                <div class="filter__dropdown dropdown w-100">
+                                    <button type="button"
+                                        class="btn btn-outline text-start w-100 filter__button rounded-2"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div class="filter__text" data-value="-1">
+                                            Pilih Waktu
+                                        </div>
+                                        <i class="fa-regular fa-clock filter__icon"></i>
+                                    </button>
+                                    <ul class="filter__dropdown-menu dropdown-menu w-100" id="time">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-3">
+                                <p class="mb-2 fw-lighter filter__font">Jumlah Penumpang (optional)</p>
+                                <form class="position-relative">
+                                    <div class="position-absolute w-4 h-4 translate-middle-y top-50 end-0 me-3">
+                                        <img src="./images/icons/fi_users.svg" width="100%" alt="">
+                                    </div>
+                                    <input class="form-control filter__form me-2" name="passenger"
+                                        placeholder="Jumlah Penumpang">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-2 align-self-end">
+                        <button class="w-100 btn btn-secondary  " id="filter__button">Cari Mobil</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-5 pb-3">
+        <div class="container container-fluid">
+            <div class="row gy-1">
+                <!-- Alamat / Contact -->
+                <div class="col-12 col-lg-3">
+                    <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+                    <p>binarcarrental@gmail.com</p>
+                    <p>081-233-334-808</p>
+                </div>
+                <!-- Links -->
+                <div class="col-12 col-lg-3">
+                    <ul class="footer__list fw-semibold d-flex flex-column gap-1 p-0">
+                        <li>
+                            <a href="#our-services">Our Services</a>
+                        </li>
+                        <li>
+                            <a href="#why-us">Why Us</a>
+                        </li>
+                        <li>
+                            <a href="#testimonial">Testimonial</a>
+                        </li>
+                        <li>
+                            <a href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Connect with us -->
+                <div class="col-12 col-lg-3">
+                    <p>Connect with us</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="">
+                            <i class="fa-brands fa-facebook footer__icon"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fa-brands fa-instagram footer__icon"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fa-brands fa-twitter footer__icon"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fa-regular fa-envelope footer__icon"></i>
+                        </a>
+                        <a href="#" class="">
+                            <i class="fa-brands fa-twitch footer__icon"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Copyright -->
+                <div class="col-12 col-lg-3">
+                    <p>Copyright Binar 2022</p>
+                    <p class="fw-bolder">Binar Car Rental</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="load-btn">Load</button>
+    <button id="clear-btn">Clear</button>
+    <div id="cars-container"></div>
+
+    <!-- Bootstrap Javascript  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+    <!-- Owl Carousel Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!-- Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/70ee0c3ec7.js" crossorigin="anonymous"></script>
+
+    <!-- Example Javascript -->
+    <script type="text/javascript" src="./scripts/binar.js"></script>
+    <script type="text/javascript" src="./scripts/app.example.js"></script>
+    <script type="text/javascript" src="./scripts/car.example.js"></script>
+    <script type="text/javascript" src="./scripts/main.example.js"></script>
+    <script type="text/javascript" src="./scripts/script.js"></script>
 </body>
 
 </html>
