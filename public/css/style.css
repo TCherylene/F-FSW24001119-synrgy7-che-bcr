@@ -38,6 +38,7 @@ select option:checked {
 /* Hero */
 section.hero__background {
   background: #f1f3ff;
+  min-height: 10rem;
 }
 
 /* Screen */
