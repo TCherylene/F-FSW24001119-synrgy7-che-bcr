@@ -34,7 +34,7 @@
     <nav class="navbar navbar__background navbar-expand-lg mx-auto">
         <div class="container container-fluid">
             <!-- Logo -->
-            <a class="navbar-brand" href="#"> Binar Car Rental </a>
+            <a class="navbar-brand" href="/"> Binar Car Rental </a>
             <!-- Navbar Toggler Mobile  -->
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -126,8 +126,8 @@
                                 <p class="mb-2 fw-lighter filter__font">Tipe Driver</p>
                                 <div class="filter__dropdown dropdown w-100">
                                     <button type="button"
-                                        class="btn btn-outline text-start w-100 filter__button rounded-2"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        class="required btn btn-outline text-start w-100 filter__button rounded-2"
+                                        data-bs-toggle="dropdown" aria-expanded="false" i>
                                         <div class="filter__text" data-value="-1">
                                             Pilih Tipe Driver
                                         </div>
@@ -147,8 +147,8 @@
                             <!-- Tanggal -->
                             <div class="col-12 col-lg-3">
                                 <p class="mb-2 fw-lighter filter__font">Tanggal</p>
-                                <input class="form-control filter__form me-2 litepicker" placeholder="Pilih Tanggal"
-                                    type="date" name="date" id="litepicker">
+                                <input class="form-control filter__form required me-2 flatpickkkr"
+                                    placeholder="Pilih Tanggal" type="date" name="date">
                             </div>
 
                             <!-- Waktu Jemput -->
@@ -156,7 +156,7 @@
                                 <p class="mb-2 fw-lighter filter__font">Waktu Jemput/Ambil</p>
                                 <div class="filter__dropdown dropdown w-100">
                                     <button type="button"
-                                        class="btn btn-outline text-start w-100 filter__button rounded-2"
+                                        class="filter__form required btn btn-outline text-start w-100 filter__button rounded-2"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <div class="filter__text" data-value="-1">
                                             Pilih Waktu
@@ -167,21 +167,23 @@
                                     </ul>
                                 </div>
                             </div>
+
+                            <!-- Jumlah Penumpang -->
                             <div class="col-12 col-lg-3">
                                 <p class="mb-2 fw-lighter filter__font">Jumlah Penumpang (optional)</p>
-                                <form class="position-relative">
+                                <div class="position-relative">
                                     <div class="position-absolute w-4 h-4 translate-middle-y top-50 end-0 me-3">
                                         <img src="./images/icons/fi_users.svg" width="100%" alt="">
                                     </div>
                                     <input class="form-control filter__form me-2" name="passenger"
                                         placeholder="Jumlah Penumpang">
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-lg-2 align-self-end">
-                        <button class="w-100 btn btn-secondary  " id="filter__button">Cari Mobil</button>
+                        <button class="w-100 btn btn-secondary" id="filter__button" disabled>Cari Mobil</button>
                     </div>
                 </div>
             </div>

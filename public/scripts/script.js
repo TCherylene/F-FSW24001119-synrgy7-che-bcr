@@ -25,6 +25,17 @@ $(document).ready(function () {
         }
     };
 
+    $('.filter__form[type="date"]').on('change', function () {
+        var date = new Date($(this).val());
+        if (date == "Invalid Date") {
+            $(this).removeClass('filter__button--active')
+        } else {
+            $(this).addClass('filter__button--active')
+        }
+
+        updateButton();
+    })
+
     $('.filter__dropdown').on('show.bs.dropdown', function () {
         const icon = $(this).find('.filter__icon').hasClass('fa-solid');
         if (icon) {
@@ -36,6 +47,17 @@ $(document).ready(function () {
         const icon = $(this).find('.filter__icon').hasClass('fa-solid');
         if (icon) {
             $(icon).removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        }
+    });
+
+    $('.filter__form[name="passenger"]').on('change', function () {
+        const value = $(this).val();
+        $(this).attr('data-value', value);
+
+        if (value > 0) {
+            $(this).addClass('filter__button--active');
+        } else {
+            $(this).removeClass('filter__button--active');
         }
     });
 
@@ -51,7 +73,34 @@ $(document).ready(function () {
         // add active to this
         $(this).addClass('active');
         changeBorder(this);
+        updateButton();
     });
+
+    function updateButton() {
+        const forms = $('.filter__container').find('.required');
+        let disabled = false;
+
+        for (let i = 0; i < forms.length; i++) {
+            if ($(forms[i]).attr('type') == 'date') {
+                var date = new Date($(forms[i]).val());
+                if (date == "Invalid Date") {
+                    disabled = true;
+                    break;
+                }
+            } else {
+                if ($(forms[i]).find('.filter__text').attr('data-value') == -1) {
+                    disabled = true;
+                    break;
+                }
+            }
+        }
+
+        if (disabled) {
+            $('#filter__button').attr('disabled', 'disabled');
+        } else {
+            $('#filter__button').removeAttr('disabled');
+        }
+    }
 
     // Flatpickr
     const flatpickrOptions = {
