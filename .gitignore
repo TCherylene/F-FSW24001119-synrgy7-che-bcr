@@ -1,2 +1,4 @@
 assets/css/bootstrap.css
 .vscode
+node_modules
+.env
