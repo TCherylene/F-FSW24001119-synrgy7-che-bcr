@@ -1,17 +1,17 @@
 /*
  * Contoh kode untuk membaca query parameter,
  * Siapa tau relevan! :)
+ * 
+ * Keep dulu 
+ * Notes: belum pakai di challenge ini
  * */
 
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
-// Coba olah data ini hehe :)
 console.log(params);
 
-/*
- * Contoh penggunaan DOM di dalam class
- * */
-const app = new App();
-
-app.init().then(app.run);
+if (params.driver && params.date && params.time) {
+    const app = new App();
+    app.init(params).then(app.run);
+}

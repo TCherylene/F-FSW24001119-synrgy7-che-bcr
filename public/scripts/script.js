@@ -1,17 +1,18 @@
+let dateData = null;
+
 $(document).ready(function () {
     // DOM for time looping
     let time = '';
     for (let i = 0; i <= 23; i++) {
         let value = i < 10 ? '0' + i : i;
 
-        time += `<li class="filter__dropdown-item dropdown-item filter__button" data-value="${i}">
+        time += `<li class="filter__dropdown-item dropdown-item filter__button" data-value="${value}:00:00">
             <div>${value}:00</div>
             <div class="filter__wib">WIB</div>
         </li>`;
     }
 
     $('#time').html(time);
-
 
     function changeBorder(element) {
         const parent = $(element).closest('.filter__dropdown')
@@ -32,7 +33,7 @@ $(document).ready(function () {
         } else {
             $(this).addClass('filter__button--active')
         }
-
+        dateData = $(this).val();
         updateButton();
     })
 
@@ -132,4 +133,5 @@ $(document).ready(function () {
             1200: { items: 2 }
         },
     });
+
 });
