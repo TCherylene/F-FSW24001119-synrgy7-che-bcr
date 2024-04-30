@@ -19,7 +19,10 @@ function getHTML(htmlFileName) {
 // Request handler
 // Fungsi yang berjalan ketika ada request yang masuk.
 function onRequest(req, res) {
-    switch (req.url) {
+    const urlParts = req.url.split('?');
+    const urlPath = urlParts[0];
+
+    switch (urlPath) {
         case "/":
             res.writeHead(200)
             res.end(getHTML("index.html"))
