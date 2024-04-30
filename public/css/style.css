@@ -176,6 +176,13 @@ section.hero__background {
   border-color: var(--bs-black);
 }
 
+/* Car Result */
+.card__image--car {
+  max-height: 200px;
+  width: auto;
+  max-width: 100%;
+}
+
 /* Footer */
 .footer__list {
   list-style-type: none;
@@ -198,6 +205,10 @@ section.hero__background {
   #car-background {
     width: 95%;
     height: 30%;
+  }
+
+  .filter__container {
+    min-height: 15rem;  
   }
 }
 

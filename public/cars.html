@@ -120,66 +120,70 @@
 
                 <div class="row">
                     <div class="col-12 col-lg-10">
-                        <div class="row p-0 mb-3 mb-lg-0">
-                            <!-- Tipe Driver -->
-                            <div class="col-12 col-lg-3">
-                                <p class="mb-2 fw-lighter filter__font">Tipe Driver</p>
-                                <div class="filter__dropdown dropdown w-100">
-                                    <button type="button"
-                                        class="required btn btn-outline text-start w-100 filter__button rounded-2"
-                                        data-bs-toggle="dropdown" aria-expanded="false" i>
-                                        <div class="filter__text" data-value="-1">
-                                            Pilih Tipe Driver
-                                        </div>
-                                        <i class="fa-solid fa-chevron-down filter__icon"></i>
-                                    </button>
-                                    <ul class="filter__dropdown-menu dropdown-menu w-100">
-                                        <li class="filter__dropdown-item dropdown-item" data-value="1">
-                                            Dengan Sopir
-                                        </li>
-                                        <li class="filter__dropdown-item dropdown-item" data-value="2">
-                                            Tanpa Sopir (Lepas Kunci)
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Tanggal -->
-                            <div class="col-12 col-lg-3">
-                                <p class="mb-2 fw-lighter filter__font">Tanggal</p>
-                                <input class="form-control filter__form required me-2 flatpickkkr"
-                                    placeholder="Pilih Tanggal" type="date" name="date">
-                            </div>
-
-                            <!-- Waktu Jemput -->
-                            <div class="col-12 col-lg-3">
-                                <p class="mb-2 fw-lighter filter__font">Waktu Jemput/Ambil</p>
-                                <div class="filter__dropdown dropdown w-100">
-                                    <button type="button"
-                                        class="filter__form required btn btn-outline text-start w-100 filter__button rounded-2"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <div class="filter__text" data-value="-1">
-                                            Pilih Waktu
-                                        </div>
-                                        <i class="fa-regular fa-clock filter__icon"></i>
-                                    </button>
-                                    <ul class="filter__dropdown-menu dropdown-menu w-100" id="time">
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Jumlah Penumpang -->
-                            <div class="col-12 col-lg-3">
-                                <p class="mb-2 fw-lighter filter__font">Jumlah Penumpang (optional)</p>
-                                <div class="position-relative">
-                                    <div class="position-absolute w-4 h-4 translate-middle-y top-50 end-0 me-3">
-                                        <img src="./images/icons/fi_users.svg" width="100%" alt="">
+                        <form method="GET" action="/cars" id="filter__form-container">
+                            <div class="row p-0 mb-3 mb-lg-0">
+                                <!-- Tipe Driver -->
+                                <div class="col-12 col-lg-3">
+                                    <p class="mb-2 fw-lighter filter__font">Tipe Driver</p>
+                                    <div class="filter__dropdown dropdown w-100">
+                                        <button type="button"
+                                            class="required btn btn-outline text-start w-100 filter__button rounded-2"
+                                            data-bs-toggle="dropdown" aria-expanded="false" i>
+                                            <input type="hidden" name="driver" class="filter__text" data-value="-1">
+                                            <div class="filter__text" data-value="-1">
+                                                Pilih Tipe Driver
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down filter__icon"></i>
+                                        </button>
+                                        <ul class="filter__dropdown-menu dropdown-menu w-100">
+                                            <li class="filter__dropdown-item dropdown-item" data-value="1">
+                                                Dengan Sopir
+                                            </li>
+                                            <li class="filter__dropdown-item dropdown-item" data-value="2">
+                                                Tanpa Sopir (Lepas Kunci)
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <input class="form-control filter__form me-2" name="passenger"
-                                        placeholder="Jumlah Penumpang">
+                                </div>
+
+                                <!-- Tanggal -->
+                                <div class="col-12 col-lg-3">
+                                    <p class="mb-2 fw-lighter filter__font">Tanggal</p>
+                                    <input class="form-control filter__form required me-2" placeholder="Pilih Tanggal"
+                                        type="date" name="date">
+                                </div>
+
+                                <!-- Waktu Jemput -->
+                                <div class="col-12 col-lg-3">
+                                    <p class="mb-2 fw-lighter filter__font">Waktu Jemput/Ambil</p>
+                                    <div class="filter__dropdown dropdown w-100">
+                                        <button type="button"
+                                            class="filter__form required btn btn-outline text-start w-100 filter__button rounded-2"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <input type="hidden" name="time" class="filter__text" data-value="-1">
+                                            <div class="filter__text" data-value="-1">
+                                                Pilih Waktu
+                                            </div>
+                                            <i class="fa-regular fa-clock filter__icon"></i>
+                                        </button>
+                                        <ul class="filter__dropdown-menu dropdown-menu w-100" id="time">
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Jumlah Penumpang -->
+                                <div class="col-12 col-lg-3">
+                                    <p class="mb-2 fw-lighter filter__font">Jumlah Penumpang (optional)</p>
+                                    <div class="position-relative">
+                                        <div class="position-absolute w-4 h-4 translate-middle-y top-50 end-0 me-3">
+                                            <img src="./images/icons/fi_users.svg" width="100%" alt="">
+                                        </div>
+                                        <input class="form-control filter__form me-2" name="passenger"
+                                            placeholder="Jumlah Penumpang">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
 
                     <div class="col-12 col-lg-2 align-self-end">
@@ -190,37 +194,9 @@
         </section>
 
         <section class="container container-fluid">
-            <!-- Car Result -->
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card p-4 shadow-sm">
-                        <div class="card-image-top">
-                            <img src="./images/car01.min.jpg" alt="" class="w-100">
-                        </div>
-                        <div class="card-body px-0 pb-0">
-                            <h6 class="card-text">Nama Tipe/Mobil</h6>
-                            <h5 class="card-title fw-bold">Rp 430.000 / hari</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <ul class="m-0 p-0">
-                                <li class="mb-2 d-flex align-items-center gap-3">
-                                    <img src="./images/icons/fi_users.svg" alt="">
-                                    4 Orang
-                                </li>
-                                <li class="mb-2 d-flex align-items-center gap-3">
-                                    <img src="./images/icons/fi_settings.svg" alt="">
-                                    Manual
-                                </li>
-                                <li class="mb-2 d-flex align-items-center gap-3">
-                                    <img src="./images/icons/fi_calendar.svg" alt="">
-                                    Tahun 2020
-                                </li>
-                            </ul>
+            <div class="row row-gap-3" id="cars-container">
+                <!-- Car Result -->
 
-                            <a href="#" class="btn btn-secondary w-100">Pilih Mobil</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -285,10 +261,6 @@
         </div>
     </footer>
 
-    <button id="load-btn">Load</button>
-    <button id="clear-btn">Clear</button>
-    <div id="cars-container"></div>
-
     <!-- Bootstrap Javascript  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -307,12 +279,13 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/70ee0c3ec7.js" crossorigin="anonymous"></script>
 
-    <!-- Example Javascript -->
+    <!-- Javascript -->
     <script type="text/javascript" src="./scripts/binar.js"></script>
-    <script type="text/javascript" src="./scripts/app.example.js"></script>
-    <script type="text/javascript" src="./scripts/car.example.js"></script>
-    <script type="text/javascript" src="./scripts/main.example.js"></script>
+    <script type="text/javascript" src="./scripts/app.js"></script>
+    <script type="text/javascript" src="./scripts/car.js"></script>
+    <script type="text/javascript" src="./scripts/main.js"></script>
     <script type="text/javascript" src="./scripts/script.js"></script>
+    <script type="text/javascript" src="./scripts/request.js"></script>
 </body>
 
 </html>
