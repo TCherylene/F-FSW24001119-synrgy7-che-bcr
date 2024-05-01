@@ -7,6 +7,8 @@ $('#filter__button').on('click', function () {
     const params = { date: dateData, time, passenger, driver };
 
     if (time, driver, dateData) {
+        $('section#hero').children().remove();
+
         const app = new App();
         app.clear();
         app.init(params).then(app.run);
