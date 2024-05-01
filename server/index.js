@@ -27,6 +27,10 @@ function onRequest(req, res) {
             res.writeHead(200)
             res.end(getHTML("index.html"))
             return;
+        case "/index":
+            res.writeHead(302, { "Location": "/" });
+            res.end();
+            return;
         case "/cars":
             res.writeHead(200)
             res.end(getHTML("cars.html"))
