@@ -9,6 +9,9 @@ $('#filter__button').on('click', function () {
     if (time, driver, dateData) {
         $('section#hero').children().remove();
 
+        $('#filter__button').addClass('btn-outline-primary').removeClass('btn-secondary');
+        $('#filter__button').text('Edit');
+
         const app = new App();
         app.clear();
         app.init(params).then(app.run);
