@@ -9,7 +9,7 @@ const { PORT = 8000 } = process.env; // Ambil port dari environment variable
 
 const fs = require('fs');
 const path = require('path');
-const PUBLIC_DIRECTORY = path.join(__dirname, '../public');
+const PUBLIC_DIRECTORY = path.join(process.cwd(), '/public');
 
 function getHTML(htmlFileName) {
     const htmlFilePath = path.join(PUBLIC_DIRECTORY, htmlFileName);
