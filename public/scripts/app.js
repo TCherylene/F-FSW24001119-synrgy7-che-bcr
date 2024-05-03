@@ -20,17 +20,20 @@ class App {
             node.innerHTML = car.render();
             this.carContainerElement.appendChild(node);
         });
-    };
+};
 
     async load(params) {
         const { driver, date, time, passenger } = params;
         const cars = await Binar.listCars((car) => {
-            return car.availableAt >= new Date(date + "T" + time) &&
-                (passenger == undefined ? true : car.capacity >= passenger);
+            return car.availableAt >= new Date(date + "T" + time)
+                && (passenger == undefined ? true : car.capacity >= passenger)
+                && car.driver_type == driver;
         });
+
 
         // initiate car class
         Car.init(cars);
+        console.log(Car.init(cars))
     }
 
     clear = () => {
