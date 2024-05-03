@@ -30,10 +30,8 @@ class App {
                 && car.driver_type == driver;
         });
 
-
         // initiate car class
         Car.init(cars);
-        console.log(Car.init(cars))
     }
 
     clear = () => {

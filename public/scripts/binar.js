@@ -12,7 +12,7 @@ class Binar {
             const mutator = getRandomInt(1000000, 100000000);
             const availableAt = new Date(timeAt.getTime() + (isPositive ? mutator : -1 * mutator))
 
-            const driver_type = getRandomInt(0, 1) === 1;
+            const driver_type = isPositive ? "dengan-sopir" : "tanpa-sopir";
 
             return {
                 ...car,
