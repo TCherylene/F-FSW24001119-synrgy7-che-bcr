@@ -75,18 +75,31 @@ async function updateCar(req: Request, res: Response): Promise<Response> {
             console.log(result);
 
             const updatedCar = await CarsModel.query().findById(id).patch({
-                name: name,
-                price: parseInt(price),
-                category: category,
-                start_rent: new Date(start_rent),
-                finish_rent: new Date(finish_rent),
+                name: name ?? car.name,
+                price: parseInt(price) ?? car.price,
+                category: category ?? car.category,
+                start_rent: new Date(start_rent) ?? car.start_rent,
+                finish_rent: new Date(finish_rent) ?? car.finish_rent,
                 photo: result?.url ?? ''
+            }).returning('*') ;
+            return res.status(200).json({
+                'message': 'Data telah diupdate',
+                'data': updatedCar
             });
-            return res.status(200).json(updatedCar);
         });
     } else {
-        const updatedCar = await CarsModel.query().findById(id).patch({ name, price, category, start_rent, finish_rent });
-        return res.status(200).json(updatedCar);
+        const updatedCar = await CarsModel.query().findById(id).patch({
+            name: name ?? car.name,
+            price: parseInt(price) ?? car.price,
+            category: category ?? car.category,
+            start_rent: new Date(start_rent) ?? car.start_rent,
+            finish_rent: new Date(finish_rent) ?? car.finish_rent,
+            photo: car.photo
+        }).returning('*');
+        return res.status(200).json({
+            'message': 'Data telah diupdate',
+            'data': updatedCar
+        });
     }
 }
 
