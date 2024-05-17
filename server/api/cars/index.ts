@@ -80,7 +80,8 @@ async function updateCar(req: Request, res: Response): Promise<Response> {
                 category: category ?? car.category,
                 start_rent: new Date(start_rent) ?? car.start_rent,
                 finish_rent: new Date(finish_rent) ?? car.finish_rent,
-                photo: result?.url ?? ''
+                photo: result?.url ?? '',
+                updated_at: new Date(),
             }).returning('*') ;
             return res.status(200).json({
                 'message': 'Data telah diupdate',
@@ -94,7 +95,8 @@ async function updateCar(req: Request, res: Response): Promise<Response> {
             category: category ?? car.category,
             start_rent: new Date(start_rent) ?? car.start_rent,
             finish_rent: new Date(finish_rent) ?? car.finish_rent,
-            photo: car.photo
+            photo: car.photo,
+            updated_at: new Date(),
         }).returning('*');
         return res.status(200).json({
             'message': 'Data telah diupdate',
