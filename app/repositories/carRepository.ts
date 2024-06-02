@@ -30,7 +30,7 @@ export default new class CarRepository {
         const query = CarsModel.query().where(conditionArgs);
         const [total, data] = await Promise.all([
             query.resultSize(),
-            query.select()
+            query.select('id', 'name', 'price', 'photo', 'category', 'start_rent', 'finish_rent', 'active')
         ]);
 
         return {
@@ -40,6 +40,7 @@ export default new class CarRepository {
     }
 
     async findById(id: MaybeCompositeId){
-        return CarsModel.query().findById(id).throwIfNotFound();
+        return CarsModel.query().findById(id).select('id', 'name', 'price', 'photo', 'category', 'start_rent', 'finish_rent', 'active') 
+        .throwIfNotFound();
     }
 }

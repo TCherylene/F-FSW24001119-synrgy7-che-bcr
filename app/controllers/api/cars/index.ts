@@ -15,7 +15,7 @@ interface Car {
 }
 
 async function getCars(req: any, res: Response): Promise<Response> {
-    let condition = null;
+    let condition = {};
     if(req.user.role === roleUser) {
         condition = { active: true }
     }
@@ -82,11 +82,11 @@ async function updateCar(req: any, res: Response): Promise<any> {
             updateData.photo = fileUpload.url;
         } 
 
-        const books = await carService.update(id, updateData);
+        const cars = await carService.update(id, updateData);
     
         return res.status(200).json({
             message: "Data berhasil diupdate",
-            data: books
+            data: cars[0]
         });
     } catch (e) {
         console.error(e)

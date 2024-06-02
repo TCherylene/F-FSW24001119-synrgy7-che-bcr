@@ -4,33 +4,37 @@ import { multerMemory } from '../app/middleware/multerMemory'
 import { authorize } from '../app/middleware/authorization'
 import { allowAccess } from '../app/middleware/allowAccess'
 
-const authRouter = express.Router()
-const userRouter = express.Router()
-const carRouter = express.Router()
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../openapi.json';
 
+const apiRouter = express.Router()
 const superAdmin = 'superadmin'
 const admin = 'admin'
 
+// DOCS
+apiRouter.use('/docs', swaggerUi.serve);
+apiRouter.get('/docs', swaggerUi.setup(swaggerDocument));
+
 // AUTH
-authRouter.post("/login", controllers.api.auth.login);
-authRouter.post("/register", controllers.api.auth.register);
+apiRouter.post("/auth/login", controllers.api.auth.login);
+apiRouter.post("/auth/register", controllers.api.auth.register);
 
 // USER
-userRouter.get("/whoami", authorize, controllers.api.users.whoAmI);
-userRouter.get("/users", authorize, allowAccess([superAdmin]), controllers.api.users.getUsers);
-userRouter.post("/create/admin", authorize, allowAccess([superAdmin]), controllers.api.users.createAdmin);
+apiRouter.get("/whoami", authorize, controllers.api.users.whoAmI);
+apiRouter.get("/users", authorize, allowAccess([superAdmin]), controllers.api.users.getUsers);
+apiRouter.post("/users/admin", authorize, allowAccess([superAdmin]), controllers.api.users.createAdmin);
 
 // CARS
-carRouter.get("/", authorize, controllers.api.cars.getCars);
-carRouter.get("/:id", authorize, controllers.api.cars.getCarsById);
+apiRouter.get("/cars", authorize, controllers.api.cars.getCars);
+apiRouter.get("/cars/:id", authorize, controllers.api.cars.getCarsById);
 
-carRouter.post("/", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.addCar);
-carRouter.put("/:id", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.updateCar);
-carRouter.delete("/:id", authorize, allowAccess([admin, superAdmin]), controllers.api.cars.deleteCar);
+apiRouter.post("/cars", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.addCar);
+apiRouter.put("/cars/:id", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.updateCar);
+apiRouter.delete("/cars/:id", authorize, allowAccess([admin, superAdmin]), controllers.api.cars.deleteCar);
 
+apiRouter.use(controllers.api.main.onLost) //Error404
+apiRouter.use(controllers.api.main.onError) //Error500
 
 export default {
-    authRouter,
-    carRouter,
-    userRouter
+    apiRouter,
 };

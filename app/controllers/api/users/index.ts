@@ -12,7 +12,7 @@ async function whoAmI(req:any, res:Response){
 
 async function createAdmin(req:Request, res:Response){
     const {email, password, nama, avatar, role} = req.body;
-    if(!email || !password || !nama || !avatar){
+    if(!email || !password || !nama ){
         return res.status(400).json({
             message: "Data tidak lengkap"
         })
@@ -21,7 +21,7 @@ async function createAdmin(req:Request, res:Response){
     try{
         const userExist = await userService.checkDuplicate(email);
         if(userExist){
-            return res.status(400).json({
+            return res.status(409).json({
                 message: "Email sudah terdaftar!"
             })
         }

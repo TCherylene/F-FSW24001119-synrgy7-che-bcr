@@ -11,9 +11,9 @@ async function login(req:Request, res:Response){
         const isPasswordCorrect = await checkPassword(user.password, password)
     
         if(!isPasswordCorrect){
-            return res.status(401)
+            return res.status(404)
             .json({
-                message: "Password salah!"
+                message: "Email atau password salah"
             })
         }
 
@@ -25,7 +25,7 @@ async function login(req:Request, res:Response){
             updatedAt: user.updated_at
         })
     
-        res.status(201).json({
+        res.status(200).json({
             message: "Berhasil Login",
             data: {
                 id: user.id,
@@ -39,7 +39,7 @@ async function login(req:Request, res:Response){
     } catch (e){
         console.error(e)
         res.status(404).json({
-            message: "Akun tidak ditemukan"
+            message: "Email atau password salah"
         })
     }
 
@@ -51,7 +51,7 @@ async function register(req:Request, res:Response){
     try{
         const userExist = await userService.checkDuplicate(email);
         if(userExist){
-            return res.status(400).json({
+            return res.status(409).json({
                 message: "Email sudah terdaftar!"
             })
         }

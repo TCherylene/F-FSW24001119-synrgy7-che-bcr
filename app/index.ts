@@ -39,8 +39,6 @@ app.use(session({
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use("/api/v1/auth", routes.authRouter)
-app.use("/api/v1/cars", routes.carRouter)
-app.use("/api/v1/users", routes.userRouter)
+app.use("/api/v1", routes.apiRouter)
 
 export default app;

@@ -37,7 +37,9 @@ export default new class UserRepository{
         const query = UsersModel.query().where(conditionArgs);
         const [total, data] = await Promise.all([
             query.resultSize(),
-            query.select()
+            query.select(
+                'id', 'nama', 'email', 'avatar', 'role', 'created_by', 'updated_by', 'created_at', 'updated_at', 'active'
+            )
         ]);
 
         return {
