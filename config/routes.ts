@@ -21,8 +21,8 @@ userRouter.get("/users", authorize, allowAccess([superAdmin]), controllers.api.u
 userRouter.post("/create/admin", authorize, allowAccess([superAdmin]), controllers.api.users.createAdmin);
 
 // CARS
-carRouter.get("/", controllers.api.cars.getCars);
-carRouter.get("/:id", controllers.api.cars.getCarsById);
+carRouter.get("/", authorize, controllers.api.cars.getCars);
+carRouter.get("/:id", authorize, controllers.api.cars.getCarsById);
 
 carRouter.post("/", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.addCar);
 carRouter.put("/:id", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.updateCar);

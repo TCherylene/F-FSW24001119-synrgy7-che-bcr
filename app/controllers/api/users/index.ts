@@ -1,5 +1,5 @@
+import userService from '../../../services/userService';
 import { Request, Response } from 'express';
-import { UsersModel } from '../../../models/users';
 import { encryptPassword, checkPassword, createToken } 
 from '../../../utils/encrypt';
 
@@ -19,24 +19,22 @@ async function createAdmin(req:Request, res:Response){
     }
 
     try{
-        const hashPassword = await encryptPassword(password);
-        const userExist = await UsersModel
-            .query()
-            .findOne({ email })
-
+        const userExist = await userService.checkDuplicate(email);
         if(userExist){
             return res.status(400).json({
                 message: "Email sudah terdaftar!"
             })
         }
 
-        const user = await UsersModel.query().insert({
+        const hashPassword = await encryptPassword(password);
+        const user = await userService.create({
             email,
             password: hashPassword,
             nama,
             avatar,
-            role: role ?? 'admin',
+            role: role || 'admin'
         });
+
         res.json({
             message: "Berhasil",
             data: {
@@ -48,7 +46,6 @@ async function createAdmin(req:Request, res:Response){
             }
         })
     } catch(e){
-        console.error(e);
         res.status(500).json({
             message: "Internal Server Error"
         })
@@ -56,8 +53,8 @@ async function createAdmin(req:Request, res:Response){
 }
 
 async function getUsers(req: Request, res: Response) {
-    const users = await UsersModel.query();
-    res.json(users);
+    const users = await userService.findAll({});
+    res.status(200).json(users);
 }
 
 export default {
