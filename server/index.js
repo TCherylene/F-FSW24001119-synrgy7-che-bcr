@@ -5,7 +5,7 @@
  * */
 const http = require('http');
 const URL = "127.0.0.1";
-const { PORT = 8000 } = process.env; // Ambil port dari environment variable
+const { PORT = 5000 } = process.env; // Ambil port dari environment variable
 
 const fs = require('fs');
 const path = require('path');
@@ -34,6 +34,14 @@ function onRequest(req, res) {
         case "/cars":
             res.writeHead(200)
             res.end(getHTML("cars.html"))
+            return;
+        case "/login":
+            res.writeHead(200)
+            res.end(getHTML("login.html"))
+            return;
+        case "/dashboard":
+            res.writeHead(200)
+            res.end(getHTML("dashboard.html"))
             return;
         default:
             // Jika bukan static files dan tidak ada route yang cocok, kirim 404

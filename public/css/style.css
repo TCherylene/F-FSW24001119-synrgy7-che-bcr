@@ -1,3 +1,85 @@
+/* Common */
+.fs-12 {
+  font-size: 0.75rem;
+}
+
+.bg-gray {
+  background-color: #f4f5f7;
+}
+
+.bg-dark-blue {
+  color: white;
+  background: var(--bs-dark-blue);
+}
+
+.text-gray {
+  color: var(--bs-gray-400);
+}
+
+/* Login Page */
+.scale-up {
+  transform: scale(1.25, 1);
+}
+
+/* Sidebar */
+.side {
+  min-width: 80px !important;
+}
+
+.sidebar_item {
+  text-decoration: none;
+  color: var(--bs-secondary-text-emphasis);
+}
+
+.w-sidebar {
+  width: 220px;
+}
+
+.h-sidebar {
+  min-height: calc(100vh - var(--navbar-height));
+  height: calc(100% - var(--navbar-height));
+}
+
+.sidebar__icon {
+  color: var(--bs-white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.sidebar__icon:hover,
+.sidebar__icon.active {
+  background-color: rgba(var(--bs-white-rgb), 0.4);
+}
+
+#sidebar-collapse a {
+  text-decoration: none;
+}
+
+.sidebar_heading {
+  color: var(--bs-gray-600);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sidebar_heading:hover {
+  cursor: default;
+}
+
+.sidebar_item {
+  color: var(--bs-black);
+  font-weight: 700;
+}
+
+.sidebar_item:hover,
+.sidebar_item.active {
+  background-color: rgba(var(--bs-primary-rgb), 0.3);
+}
+
+/* Form Search Cars */
 .filter__form,
 .filter__form:focus,
 .filter__form:active {
@@ -142,7 +224,8 @@ section.hero__background {
   overflow-y: auto;
 }
 
-.dropdown-item:hover, .dropdown-item.active {
+.dropdown-item:hover,
+.dropdown-item.active {
   background-color: var(--bs-light-green);
   color: var(--bs-lime-green);
   font-weight: 600;
@@ -208,7 +291,7 @@ section.hero__background {
   }
 
   .filter__container {
-    min-height: 15rem;  
+    min-height: 15rem;
   }
 }
 
