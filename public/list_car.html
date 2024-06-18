@@ -26,7 +26,17 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body class="d-flex bg-gray">
+<body class="d-flex  position-relative bg-gray">
+    <!-- Alert Create -->
+    <div class="alert alert-success position-absolute start-50 translate-middle w-50 text-center fw-bold" role="alert" style="top: calc(var(--navbar-height) + 50px);">
+        Data Berhasil Disimpan
+    </div>
+    <!-- Alert Delete -->
+    <div class="alert alert-black position-absolute start-50 translate-middle w-50 text-center fw-bold" role="alert" style="top: calc(var(--navbar-height) + 50px);">
+        Data Berhasil Dihapus
+    </div>
+
+    
     <!-- Sidebar Fixed -->
     <aside class="side bg-primary min-vh-100 d-none d-md-flex flex-column align-items-center">
         <div class="sticky-top">
@@ -74,7 +84,6 @@
             </div>
         </nav>
 
-        <!-- Main -->
         <div class="d-flex h-sidebar">
             <!-- Sidebar Collapsable -->
             <aside class="col-auto collapse collapse-horizontal bg-white h-100" id="sidebar-collapse">
@@ -93,7 +102,7 @@
             </aside>
 
             <!-- Main Content -->
-            <div class="col pt-3 container-fluid">
+            <main class="col pt-3 container-fluid">
                 <!-- Breadcrumb -->
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb fs-12">
@@ -104,59 +113,69 @@
                 </nav>
 
                 <!-- Page Title -->
-                <h1 class="fs-4 fw-bold">Add New Car</h1>
+                <div class="d-flex justify-content-between align-items-center pb-3">
+                    <h1 class="fs-4 fw-bold">List Car</h1>
+                    <a href="/create-cars" class="btn btn-primary">
+                        <i class="fa-solid fa-plus me-3"></i>
+                        <span>Add New Car</span>
+                    </a>
+                </div>
+                <div class="row">
+                    <!-- Car Item -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card p-4 shadow-sm" style="height: 100%">
+                            <div class="card-image-top text-center">
+                                <img src="./images/car01.min.jpg" alt="" class="card__image--car">
+                            </div>
+                            <div class="card-body px-0 pb-0">
+                                <h6 class="card-text">Nama/Tipe Mobil</h6>
+                                <h5 class="card-title fw-bold">Rp 430.000 / hari</h5>
+                                <ul class="m-0 p-0">
+                                    <li class="mb-2 d-flex align-items-center gap-3">
+                                        <img src="./images/icons/fi_key.svg" alt="">
+                                        Start rent - Finish rent
+                                    </li>
+                                    <li class="mb-2 d-flex align-items-center gap-3">
+                                        <img src="./images/icons/fi_clock_gray.svg" alt="">
+                                        Updated at 4 Apr 2022, 09.00
+                                    </li>
+                                </ul>
+                                <div class="d-flex flex-row w-100 gap-2">
+                                    <button type="button" class="col-6 btn btn-outline-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalDelete">
+                                        <div class="py-1 fw-bold">
+                                            <i class="fa fa-trash me-2"></i> Delete
+                                        </div>
+                                    </button>
+                                    <a href="#" class="col-6 btn btn-secondary">
+                                        <div class="py-1 fw-bold">
+                                            <i class="fa-regular fa-pen-to-square me-2"></i> Edit
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 
-                <!-- Content -->
-                <form class="row bg-white p-4 m-0">
-                    <div class="row mb-3">
-                        <label for="name" class="col-sm-2 col-form-label">Nama</label>
-                        <div class="col-sm-6">
-                            <input type="name" name="name" class="form-control" id="name">
-                        </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="./images/delete-car.png" alt="">
+                    <h1 class="modal-title fw-bold fs-5" id="modalDeleteLabel">Menghapus Data Mobil</h1>
+                    <p>
+                        Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?
+                    </p>
+                    <div class="d-flex flex-row gap-3 justify-content-center">
+                        <button type="button" class="col-4 btn btn-primary">Ya</button>
+                        <button type="button" class="col-4 btn btn-outline-primary"
+                            data-bs-dismiss="modal">Tidak</button>
                     </div>
-                    <div class="row mb-3">
-                        <label for="price" class="col-sm-2 col-form-label">Harga</label>
-                        <div class="col-sm-6">
-                            <input type="number" name="price" class="form-control" id="price">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="photo" class="col-sm-2 col-form-label">Foto</label>
-                        <div class="col-sm-6">
-                            <input type="file" name="photo" class="form-control" id="photo">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="start-rent" class="col-sm-2 col-form-label">Start Rent</label>
-                        <div class="col-sm-6">
-                            <input type="date" name="start-rent" class="form-control" id="start-rent">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="finish-rent" class="col-sm-2 col-form-label">Finish Rent</label>
-                        <div class="col-sm-6">
-                            <input type="date" name="finish-rent" class="form-control" id="finish-rent">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="finish-rent" class="col-sm-2 col-form-label">Created At</label>
-                        <div class="col-sm-6">
-                            -
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="finish-rent" class="col-sm-2 col-form-label">Updated At</label>
-                        <div class="col-sm-6">
-                            -
-                        </div>
-                    </div>
-
-
-                </form>
-
-                <div class="mt-4">
-                    <a href="/list_car" class="btn btn-outline-primary">Cancel</a>
-                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>

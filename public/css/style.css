@@ -79,6 +79,14 @@
   background-color: rgba(var(--bs-primary-rgb), 0.3);
 }
 
+/* Dashboard */
+.dashboard-subheading{
+  font-weight: 600;
+  border-left: 4px solid var(--bs-primary);
+  padding-left: 0.5rem;
+  font-size: 14px;
+}
+
 /* Form Search Cars */
 .filter__form,
 .filter__form:focus,
