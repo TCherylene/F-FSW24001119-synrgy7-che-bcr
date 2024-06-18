@@ -74,8 +74,7 @@
             </div>
         </nav>
 
-        <!-- Main -->
-        <main class="d-flex h-sidebar">
+        <div class="d-flex h-sidebar">
             <!-- Sidebar Collapsable -->
             <aside class="col-auto collapse collapse-horizontal bg-white h-100" id="sidebar-collapse">
                 <div class="pt-3 w-sidebar sticky-top" style="top: var(--navbar-height)">
@@ -93,7 +92,7 @@
             </aside>
 
             <!-- Main Content -->
-            <div class="col pt-3 container-fluid">
+            <main class="col pt-3 container-fluid">
                 <!-- Breadcrumb -->
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb fs-12">
@@ -106,21 +105,49 @@
                 <!-- Page Title -->
                 <div class="d-flex justify-content-between align-items-center pb-3">
                     <h1 class="fs-4 fw-bold">List Car</h1>
-                    <button class="btn btn-primary">
+                    <a href="/create-cars" class="btn btn-primary">
                         <i class="fa-solid fa-plus me-3"></i>
                         <span>Add New Car</span>
-                    </button>
+                    </a>
                 </div>
                 <div class="row">
+                    <!-- Car Item -->
                     <div class="col-4">
-                        lalala
-                    </div>
-                    <div class="col-4">
-                        lalala
+                        <div class="card p-4 shadow-sm" style="height: 100%">
+                            <div class="card-image-top text-center">
+                                <img src="${this.image}" alt="" class="card__image--car">
+                            </div>
+                            <div class="card-body px-0 pb-0">
+                                <h6 class="card-text">Nama/Tipe Mobil</h6>
+                                <h5 class="card-title fw-bold">Rp 430.000 / hari</h5>
+                                <ul class="m-0 p-0">
+                                    <li class="mb-2 d-flex align-items-center gap-3">
+                                        <img src="./images/icons/fi_key.svg" alt="">
+                                        Start rent - Finish rent
+                                    </li>
+                                    <li class="mb-2 d-flex align-items-center gap-3">
+                                        <img src="./images/icons/fi_clock_gray.svg" alt="">
+                                        Updated at 4 Apr 2022, 09.00
+                                    </li>
+                                </ul>
+                                <div class="d-flex flex-row w-100 gap-2">
+                                    <a href="#" class="col-6 btn btn-outline-danger">
+                                        <div class="py-1 fw-bold">
+                                            <i class="fa fa-trash me-2"></i> Delete
+                                        </div>
+                                    </a>
+                                    <a href="#" class="col-6 btn btn-secondary">
+                                        <div class="py-1 fw-bold">
+                                            <i class="fa-regular fa-pen-to-square me-2"></i> Edit
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
     <!-- Bootstrap Javascript  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
