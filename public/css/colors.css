@@ -17,7 +17,7 @@
   --bs-white: #ffffff;
   --bs-primary-rgb: 13, 40, 166;
   --bs-secondary-rgb: 92, 184, 95;
-  --bs-success-rgb: 115, 202, 92; 
+  --bs-success-rgb: 115, 202, 92;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 249, 204, 0;
   --bs-danger-rgb: 250, 44, 90;
@@ -109,4 +109,18 @@
   --bs-alert-bg: #000000;
   --bs-alert-border: #000000;
   --bs-alert-color: var(--bs-white);
+}
+
+.table-primary {
+  --bs-table-color: #000;
+  --bs-table-bg: rgba(var(--bs-primary-rgb), 0.3);
+  --bs-table-border-color: rgba(var(--bs-primary-rgb), 0.1);
+  --bs-table-striped-bg: rgba(var(--bs-primary-rgb), 0.1);
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: rgba(var(--bs-primary-rgb), 0.2);
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: rgba(var(--bs-primary-rgb), 0.1);
+  --bs-table-hover-color: #000;
+  color: var(--bs-table-color);
+  border-color: var(--bs-table-border-color);
 }
