@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body class="d-flex bg-gray">
+<body class="d-flex  position-relative bg-gray">
     <!-- Sidebar Fixed -->
     <aside class="side bg-primary min-vh-100 d-none d-md-flex flex-column align-items-center">
         <div class="sticky-top">
@@ -80,12 +80,12 @@
                 <div class="pt-3 w-sidebar sticky-top" style="top: var(--navbar-height)">
                     <a href="#" class="sidebar_heading w-100">
                         <div class="ps-3 py-2">
-                            CARS
+                            DASHBOARD
                         </div>
                     </a>
                     <a href="#" class="sidebar_item w-100">
                         <div class="sidebar_item ps-3 py-2">
-                            List Car
+                            Dashboard
                         </div>
                     </a>
                 </div>
@@ -96,57 +96,135 @@
                 <!-- Breadcrumb -->
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb fs-12">
-                        <li class="breadcrumb-item fw-bold"><a class="text-decoration-none text-black" href="#">Cars</a>
+                        <li class="breadcrumb-item fw-bold"><a class="text-decoration-none text-black"
+                                href="#">Dashboard</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">List Car</li>
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                     </ol>
                 </nav>
 
                 <!-- Page Title -->
-                <div class="d-flex justify-content-between align-items-center pb-3">
-                    <h1 class="fs-4 fw-bold">List Car</h1>
-                    <a href="/create-cars" class="btn btn-primary">
-                        <i class="fa-solid fa-plus me-3"></i>
-                        <span>Add New Car</span>
-                    </a>
+                <h1 class="fs-4 fw-bold">Dashboard</h1>
+
+                <!-- List Order -->
+                <div class="dashboard-subheading mt-3 fs-6">
+                    List Order
                 </div>
-                <div class="row">
-                    <!-- Car Item -->
-                    <div class="col-4">
-                        <div class="card p-4 shadow-sm" style="height: 100%">
-                            <div class="card-image-top text-center">
-                                <img src="${this.image}" alt="" class="card__image--car">
-                            </div>
-                            <div class="card-body px-0 pb-0">
-                                <h6 class="card-text">Nama/Tipe Mobil</h6>
-                                <h5 class="card-title fw-bold">Rp 430.000 / hari</h5>
-                                <ul class="m-0 p-0">
-                                    <li class="mb-2 d-flex align-items-center gap-3">
-                                        <img src="./images/icons/fi_key.svg" alt="">
-                                        Start rent - Finish rent
-                                    </li>
-                                    <li class="mb-2 d-flex align-items-center gap-3">
-                                        <img src="./images/icons/fi_clock_gray.svg" alt="">
-                                        Updated at 4 Apr 2022, 09.00
-                                    </li>
-                                </ul>
-                                <div class="d-flex flex-row w-100 gap-2">
-                                    <a href="#" class="col-6 btn btn-outline-danger">
-                                        <div class="py-1 fw-bold">
-                                            <i class="fa fa-trash me-2"></i> Delete
-                                        </div>
-                                    </a>
-                                    <a href="#" class="col-6 btn btn-secondary">
-                                        <div class="py-1 fw-bold">
-                                            <i class="fa-regular fa-pen-to-square me-2"></i> Edit
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                <table class="table mt-3 w-100">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">No</th>
+                            <th scope="col">User Email</th>
+                            <th scope="col">Car</th>
+                            <th scope="col">Start Rent</th>
+                            <th scope="col">Finish Rent</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td>user@gmail.com</td>
+                            <td>Toyota Avanza</td>
+                            <td>2021-12-01</td>
+                            <td>2021-12-03</td>
+                            <td>500000</td>
+                            <td>Success</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td>user@gmail.com</td>
+                            <td>Toyota Avanza</td>
+                            <td>2021-12-01</td>
+                            <td>2021-12-03</td>
+                            <td>500000</td>
+                            <td>Success</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td>user@gmail.com</td>
+                            <td>Toyota Avanza</td>
+                            <td>2021-12-01</td>
+                            <td>2021-12-03</td>
+                            <td>500000</td>
+                            <td>Success</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td>user@gmail.com</td>
+                            <td>Toyota Avanza</td>
+                            <td>2021-12-01</td>
+                            <td>2021-12-03</td>
+                            <td>500000</td>
+                            <td>Success</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td>user@gmail.com</td>
+                            <td>Toyota Avanza</td>
+                            <td>2021-12-01</td>
+                            <td>2021-12-03</td>
+                            <td>500000</td>
+                            <td>Success</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <!-- List Car -->
+                <div class="dashboard-subheading mt-3 fs-6">
+                    List Car
+                </div>
+                <table class="table mt-3 w-100">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">No</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Start Rent</th>
+                            <th scope="col">Finish Rent</th>
+                            <th scope="col">Created At</th>
+                            <th scope="col">Updated At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td>Toyota Avanza</td>
+                            <td>Car</td>
+                            <td>500000</td>
+                            <td>2021-12-01</td>
+                            <td>2021-12-03</td>
+                            <td>2021-11-20</td>
+                            <td>2021-11-20</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="./images/delete-car.png" alt="">
+                    <h1 class="modal-title fw-bold fs-5" id="modalDeleteLabel">Menghapus Data Mobil</h1>
+                    <p>
+                        Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?
+                    </p>
+                    <div class="d-flex flex-row gap-3 justify-content-center">
+                        <button type="button" class="col-4 btn btn-primary">Ya</button>
+                        <button type="button" class="col-4 btn btn-outline-primary"
+                            data-bs-dismiss="modal">Tidak</button>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
     <!-- Bootstrap Javascript  -->
