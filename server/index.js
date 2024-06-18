@@ -43,6 +43,10 @@ function onRequest(req, res) {
             res.writeHead(200)
             res.end(getHTML("dashboard.html"))
             return;
+        case "/create-cars":
+            res.writeHead(200)
+            res.end(getHTML("new_car.html"))
+            return;
         default:
             // Jika bukan static files dan tidak ada route yang cocok, kirim 404
             const filePath = path.join(PUBLIC_DIRECTORY, req.url);
