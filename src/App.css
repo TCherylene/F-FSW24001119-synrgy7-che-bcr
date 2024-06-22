@@ -1,42 +1,319 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Common */
+.fs-12 {
+  font-size: 0.75rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.bg-gray {
+  background-color: #f4f5f7;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.bg-dark-blue {
+  color: white;
+  background: var(--bs-dark-blue);
+}
+
+.text-gray {
+  color: var(--bs-gray-400);
+}
+
+.max-width-80 {
+  max-width: 80px;
+}
+
+/* Login Page */
+.scale-up {
+  transform: scale(1.25, 1);
+}
+
+/* Sidebar */
+.side {
+  min-width: 80px !important;
+}
+
+.sidebar_item {
+  text-decoration: none;
+  color: var(--bs-secondary-text-emphasis);
+}
+
+.w-sidebar {
+  width: 220px;
+}
+
+.h-sidebar {
+  min-height: calc(100vh - var(--navbar-height));
+  height: calc(100% - var(--navbar-height));
+}
+
+.sidebar__icon {
+  color: var(--bs-white);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.sidebar__icon:hover,
+.sidebar__icon.active {
+  background-color: rgba(var(--bs-white-rgb), 0.4);
+}
+
+#sidebar-collapse a {
+  text-decoration: none;
+}
+
+.sidebar_heading {
+  color: var(--bs-gray-600);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sidebar_heading:hover {
+  cursor: default;
+}
+
+.sidebar_item {
+  color: var(--bs-black);
+  font-weight: 700;
+}
+
+.sidebar_item:hover,
+.sidebar_item.active {
+  background-color: rgba(var(--bs-primary-rgb), 0.3);
+}
+
+/* Dashboard */
+.dashboard-subheading{
+  font-weight: 600;
+  border-left: 4px solid var(--bs-primary);
+  padding-left: 0.5rem;
+  font-size: 14px;
+}
+
+/* Form Search Cars */
+.filter__form,
+.filter__form:focus,
+.filter__form:active {
+  box-shadow: none;
+  border: 1px solid var(--bs-secondary-border-subtle);
+}
+
+.filter__form:focus,
+.filter__form:hover {
+  border-color: var(--bs-secondary);
+}
+
+select option:hover,
+select option:focus,
+select option:active {
+  background: linear-gradient(#000000, #000000);
+  background-color: #000000 !important; /* for IE */
+  color: #ffed00 !important;
+}
+
+select:focus {
+  box-shadow: 0 0 2px gray;
+  border-color: gray;
+  outline: none;
+}
+
+select option:checked {
+  background: linear-gradient(#d6d6d6, #d6d6d6);
+  background-color: #d6d6d6 !important; /* for IE */
+  color: #000000 !important;
+}
+
+/* Navbar */
+.navbar__background {
+  background: #f1f3ff;
+}
+
+/* Hero */
+section.hero__background {
+  background: #f1f3ff;
+  min-height: 10rem;
+}
+
+/* Screen */
+#car-background {
+  width: 45%;
+  height: 50%;
+  background-color: var(--bs-primary);
+  border-radius: 60px 0 0 0;
+}
+
+.container--car {
+  margin-right: -8%;
+}
+
+/* Our Services */
+.our-services__image {
+  max-width: 80%;
+  height: auto;
+}
+
+.our-services__list {
+  list-style-type: none;
+}
+
+.our-services__list--icon {
+  color: var(--primary);
+  padding: 0.3rem;
+  background-color: #cfd4ed;
+  width: 24px;
+  height: 24px;
+}
+
+/* Why Us */
+.why-us__icon {
+  max-width: 32px;
+  max-height: 32px;
+  background-color: black;
+  border-radius: 100%;
+}
+
+/* Testimonials */
+.owl-carousel .owl-item {
+  transition: all 0.3s ease-in-out;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  background: var(--bs-white);
+  border-color: var(--bs-gray-500);
+}
+
+.owl-carousel .owl-nav button.owl-prev:hover,
+.owl-carousel .owl-nav button.owl-next:hover {
+  background: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+
+.testimonials__icons--chevron-left,
+.testimonials__icons--chevron-right {
+  color: var(--bs-black);
+}
+
+.owl-carousel .owl-nav button.owl-prev:hover .testimonials__icons--chevron-left,
+.owl-carousel
+  .owl-nav
+  button.owl-next:hover
+  .testimonials__icons--chevron-right {
+  color: var(--bs-white);
+}
+
+.testimonials__card {
+  background: #f1f3ff;
+  height: 350px;
+}
+
+.testimonials__icons--star {
+  color: var(--bs-gray-400);
+}
+
+.testimonials__icons--star.active {
+  color: var(--bs-warning);
+}
+
+/* CTA */
+.cta__background {
+  background: var(--bs-primary);
+  min-height: 50vh;
+}
+
+/* Dropdown */
+.filter__dropdown-menu {
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background-color: var(--bs-light-green);
+  color: var(--bs-lime-green);
+  font-weight: 600;
+}
+
+/* Filter */
+.filter__container {
+  min-height: 6rem;
+}
+
+.filter__font {
+  font-size: 0.75rem;
+}
+
+.filter__button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-color: var(--bs-secondary-border-subtle);
+  color: var(--bs-gray-800);
+}
+
+.filter__button:hover,
+.filter__button:active,
+.filter__button:focus {
+  border-color: var(--bs-secondary);
+}
+
+.filter__button--active {
+  border-color: var(--bs-black);
+}
+
+/* Car Result */
+.card__image--car {
+  max-height: 200px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* Footer */
+.footer__list {
+  list-style-type: none;
+}
+
+.footer__list a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer__icon {
+  color: white;
+  background-color: var(--bs-primary);
+  border-radius: 100%;
+  padding: 0.5rem;
+}
+
+/* Screen LG */
+@media screen and (max-width: 992px) {
+  #car-background {
+    width: 95%;
+    height: 30%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .filter__container {
+    min-height: 15rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Screen XS */
+@media screen and (max-width: 576px) {
+  .container--car {
+    margin-left: 3%;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  #car-background {
+    height: 20%;
+  }
 }
