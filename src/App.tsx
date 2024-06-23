@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import HomeLayouts from "./layout/HomeLayouts"
 import DashboardLayouts from "./layout/DashboardLayouts"
-import { Cars, Home, Dashboard, Login } from "./pages"
+import { Cars, CarCreate, CarLists, Dashboard, Home, Login } from "./pages"
 
 function App() {
   return (
@@ -14,9 +14,14 @@ function App() {
 
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dashboard" element={<DashboardLayouts />}>
+        <Route path="/admin" element={<DashboardLayouts />}>
           <Route index element={<Dashboard />} />
-          <Route path="list" element={<Cars />} />
+
+          <Route path="cars">
+            <Route index element={<CarLists />} />
+            <Route path="create" element={<CarCreate />} />
+          </Route>
+
         </Route>
       </Routes>
     </>
