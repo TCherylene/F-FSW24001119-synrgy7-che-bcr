@@ -84,7 +84,7 @@
 }
 
 /* Dashboard */
-.dashboard-subheading{
+.dashboard-subheading {
   font-weight: 600;
   border-left: 4px solid var(--bs-primary);
   padding-left: 0.5rem;
