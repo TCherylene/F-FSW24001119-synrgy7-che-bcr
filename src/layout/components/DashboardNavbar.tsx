@@ -1,4 +1,6 @@
-export default function DashboardNavbar() {
+import { Button } from "reactstrap"
+
+export default function DashboardNavbar({ toggle }) {
     return (
         <>
             {/* <!-- Navbar Top --> */}
@@ -8,10 +10,11 @@ export default function DashboardNavbar() {
                         <img src="/images/logo.png" />
                     </a>
 
-                    <a href="#" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse"
-                        aria-controls="sidebar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    {/* <a href="#" data-bs-toggle="collapse" data-bs-target="#sidebar-collapse"
+                        aria-controls="sidebar-collapse" aria-expanded="false" aria-label="Toggle navigation"> */}
+                    <Button color="" onClick={toggle}>
                         <span className="navbar-toggler-icon"></span>
-                    </a>
+                    </Button>
 
                     <div className="ms-auto">
                         Search
