@@ -1,4 +1,4 @@
-import MyCarousel from '../general/MyCarousel';
+import MyCarousel from './MyCarousel';
 
 export default function Testimonial() {
     return (
