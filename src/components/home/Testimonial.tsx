@@ -1,3 +1,5 @@
+import MyCarousel from '../general/MyCarousel';
+
 export default function Testimonial() {
     return (
         <>
@@ -9,102 +11,7 @@ export default function Testimonial() {
                     Berbagai review positif dari para pelanggan kami
                 </p>
 
-                {/* Owl Carousels */}
-                <div className="owl-carousel  owl-theme">
-                    {/* Testimonials 1 */}
-                    <div className="item">
-                        <div className="card testimonials__card border-0 shadow-sm py-3">
-                            <div className="row g-2 justify-content-center my-auto">
-                                {/* Foto Profil */}
-                                <div className="col-lg-2 px-2 my-auto">
-                                    <img src="./images/photo-profile.png" className="w-100 mx-auto rounded-0 max-width-80" alt="..." />
-                                </div>
-                                {/* Teks */}
-                                <div className="col-lg-8">
-                                    <div className="card-body">
-                                        {/* Rating */}
-                                        <h5 className="card-title text-center text-lg-start mb-3">
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                        </h5>
-                                        <p className="card-text">Testimonial 1 - “Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit, sed
-                                            do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod”
-                                        </p>
-                                        <p className="card-text fw-semibold">John Dee 32, Bromo</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Testimonials 2 */}
-                    <div className="item">
-                        <div className="card testimonials__card border-0 shadow-sm py-3">
-                            <div className="row g-2 justify-content-center my-auto">
-                                {/* Foto Profil */}
-                                <div className="col-lg-2 px-2 my-auto">
-                                    <img src="./images/photo-profile.png" className="w-100 mx-auto rounded-0 max-width-80" alt="..." />
-                                </div>
-                                {/* Teks */}
-                                <div className="col-lg-8">
-                                    <div className="card-body">
-                                        {/* Rating */}
-                                        <h5 className="card-title text-center text-lg-start mb-3">
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                        </h5>
-                                        <p className="card-text">Testimonial 2 - “Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit, sed
-                                            do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod”
-                                        </p>
-                                        <p className="card-text fw-semibold">John Dee 32, Bromo</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Testimonials 3 */}
-                    <div className="item">
-                        <div className="card testimonials__card border-0 shadow-sm py-3">
-                            <div className="row g-2 justify-content-center my-auto">
-                                {/* Foto Profil */}
-                                <div className="col-lg-2 px-2 my-auto">
-                                    <img src="./images/photo-profile.png" className="w-100 mx-auto rounded-0 max-width-80" alt="..." />
-                                </div>
-                                {/* Teks */}
-                                <div className="col-lg-8">
-                                    <div className="card-body">
-                                        {/* Rating */}
-                                        <h5 className="card-title text-center text-lg-start mb-3">
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                            <i className="fa-solid fa-star testimonials__icons--star active"></i>
-                                        </h5>
-                                        <p className="card-text">Testimonial 1 - “Lorem ipsum dolor sit amet, consectetur
-                                            adipiscing elit, sed
-                                            do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod”
-                                        </p>
-                                        <p className="card-text fw-semibold">John Dee 32, Bromo</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <MyCarousel />
             </section>
         </>
     )
