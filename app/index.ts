@@ -5,6 +5,8 @@ import { Model } from 'objection';
 import session from 'express-session';
 import routes from '../config/routes';
 import dotenv from 'dotenv';
+import cors from 'cors';
+
 dotenv.config();
 
 const app: Express = express();
@@ -19,10 +21,10 @@ const knexInstance = knex({
         port: parseInt(process.env.DB_PORT || '5432')
     }
 })
-const port = 5000;
 
 Model.knex(knexInstance);
 
+app.use(cors());
 app.use("/public", express.static(path.resolve(__dirname, 'public')));
 app.set('views', path.join(__dirname, './views'))
 app.set('view engine', 'ejs')

@@ -1,70 +1,23 @@
-import { Express, Request, Response } from 'express';
+import { Express, Request, Response} from 'express';
 import carService from '../../../services/carService';
 
 const roleUser = 'user';
 
 interface Car {
-    id: string;
-    plate: string;
-    manufacture: string;
-    model: string;
-    image: string;
-    rentPerDay?: number;
-    capacity: number;
-    description: string;
-    availableAt?: string;
-    transmission: string;
-    available: boolean;
-    type: string;
-    year: number;
-    options: string[];
-    rent_per_day?: number; // Optional, as this will be added later
-    available_at?: string; // Optional, as this will be added later
-    driver_type?: number; // Optional, as this will be added later
-}
-
-interface Condition {
-    driver_type?: boolean,
-    available_at?: any,
-    capacity?: number,
-    available?: boolean,
+    name: string;
+    price: number;
+    photo: string;
+    category: number;
+    start_rent: Date;
+    finish_rent: Date;
+    created_at: Date;
+    updated_at: Date;
 }
 
 async function getCars(req: any, res: Response): Promise<Response> {
-    const { driver, date, time, capacity } = req.query;
-    console.log(req.query);
-
-    let condition: Condition = {};
-    const driverNumber = parseInt(driver, 10);
-    if (driver && date && time) {
-        if (driverNumber !== 0 && driverNumber !== 1) {
-            console.log("data driver")
-            return res.status(400).json({
-                "error": true,
-                "message": "Data driver tidak lengkap"
-            })
-        }
-
-
-        console.log(time)
-
-        const dateTime = new Date(date + "T" + time)
-        if (isNaN(dateTime)) {
-            return res.status(400).json({
-                "error": true,
-                "message": "Data date time tidak lengkap"
-            })
-        }
-        dateTime.setHours(dateTime.getHours() + 7);
-        console.log("datetime: ", dateTime.toISOString());
-        condition = {
-            driver_type: driver,
-            available_at: dateTime,
-        };
-    }
-
-    if (capacity) {
-        condition.capacity = capacity;
+    let condition = {};
+    if(req.user.role === roleUser) {
+        condition = { active: true }
     }
 
     const cars = await carService.findAll(condition);
@@ -73,9 +26,9 @@ async function getCars(req: any, res: Response): Promise<Response> {
 
 async function getCarsById(req: any, res: Response): Promise<Response> {
     const { id } = req.params;
-    try {
+    try{
         const car = await carService.findById(id);
-        if (req.user.role === roleUser && !car.available) {
+        if(req.user.role === roleUser && !car.active) {
             return res.status(404).json({ message: "Car not found" });
         }
 
@@ -87,11 +40,11 @@ async function getCarsById(req: any, res: Response): Promise<Response> {
 
 async function addCar(req: any, res: Response): Promise<any> {
     const { name, price, category, start_rent, finish_rent } = req.body;
-    if (!name || !price || !category || !start_rent || !finish_rent || !req.file) {
+    if(!name || !price || !category || !start_rent || !finish_rent || !req.file) {
         return res.status(400).json({ message: "Data tidak lengkap" });
     }
-
-    try {
+    
+    try{
         const fileUpload = await carService.upload(req.file);
         const cars = await carService.create({
             name,
@@ -109,7 +62,7 @@ async function addCar(req: any, res: Response): Promise<any> {
             message: "Data berhasil ditambahkan",
             data: cars
         });
-    } catch (e) {
+    } catch(e){
         console.error(e)
         return res.status(500).json({ message: "Gagal menambahkan data" })
     }
@@ -118,19 +71,19 @@ async function addCar(req: any, res: Response): Promise<any> {
 async function updateCar(req: any, res: Response): Promise<any> {
     const { id } = req.params;
 
-    try {
+    try{
         let updateData = {
             ...req.body,
             updated_by: req.user.id,
         };
-
+        
         if (req.file) {
             const fileUpload = await carService.upload(req.file);
             updateData.photo = fileUpload.url;
-        }
+        } 
 
         const cars = await carService.update(id, updateData);
-
+    
         return res.status(200).json({
             message: "Data berhasil diupdate",
             data: cars[0]

@@ -1,20 +1,24 @@
 import userService from '../../../services/userService';
 import { Request, Response } from 'express';
-import { encryptPassword, checkPassword, createToken } 
-from '../../../utils/encrypt';
+import { encryptPassword, checkPassword, createToken }
+    from '../../../utils/encrypt';
+import { UsersModel } from '../../../models/users';
+import dotenv from 'dotenv';
 
-async function login(req:Request, res:Response){
+dotenv.config();
+
+async function login(req: Request, res: Response) {
     const { email, password } = req.body;
 
-    try{
-        const user = await userService.findByEmail(email); 
+    try {
+        const user = await userService.findByEmail(email);
         const isPasswordCorrect = await checkPassword(user.password, password)
-    
-        if(!isPasswordCorrect){
+
+        if (!isPasswordCorrect) {
             return res.status(404)
-            .json({
-                message: "Email atau password salah"
-            })
+                .json({
+                    message: "Email atau password salah"
+                })
         }
 
         const token = await createToken({
@@ -24,7 +28,7 @@ async function login(req:Request, res:Response){
             createdAt: user.created_at,
             updatedAt: user.updated_at
         })
-    
+
         res.status(200).json({
             message: "Berhasil Login",
             data: {
@@ -36,7 +40,7 @@ async function login(req:Request, res:Response){
                 updatedAt: user.updated_at
             }
         })
-    } catch (e){
+    } catch (e) {
         console.error(e)
         res.status(404).json({
             message: "Email atau password salah"
@@ -46,11 +50,11 @@ async function login(req:Request, res:Response){
 
 }
 
-async function register(req:Request, res:Response){
+async function register(req: Request, res: Response) {
     const { email, password, nama, avatar } = req.body;
-    try{
+    try {
         const userExist = await userService.checkDuplicate(email);
-        if(userExist){
+        if (userExist) {
             return res.status(409).json({
                 message: "Email sudah terdaftar!"
             })
@@ -58,10 +62,10 @@ async function register(req:Request, res:Response){
 
         const encryptedPassword = await encryptPassword(password)
         const user = await userService.create({
-            email, 
+            email,
             password: encryptedPassword,
             nama,
-            role: 'user', 
+            role: 'user',
             avatar
         })
 
@@ -75,7 +79,7 @@ async function register(req:Request, res:Response){
                 updatedAt: user.updated_at
             }
         })
-    } catch(e){
+    } catch (e) {
         console.error(e)
         res.status(500).json({
             message: "Internal Server Error"

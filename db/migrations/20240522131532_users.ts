@@ -17,7 +17,7 @@ export async function up(knex: Knex): Promise<void> {
         table.boolean("active").defaultTo(true)
     }).then(() => {
         return knex.raw(onUpdateTrigger("users"))
-    })
+    })  
 }
 
 
