@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function CallToAction() {
     return (
         <>
@@ -8,7 +10,7 @@ export default function CallToAction() {
                         <h2 className="text-center">Sewa Mobil di (Lokasimu) Sekarang</h2>
                         <p className="fw-light text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                             eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                        <button className="btn btn-secondary">Mulai Sewa Mobil</button>
+                        <Link to="/cars" className="btn btn-secondary">Mulai Sewa Mobil</Link>
                     </div>
                 </div>
             </section>

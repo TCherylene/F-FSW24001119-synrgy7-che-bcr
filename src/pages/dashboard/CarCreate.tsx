@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom"
 import { useEffect } from "react";
-import PageTitle from '../components/general/PageTitle';
+import PageTitle from '../../components/general/PageTitle';
 
 
 export default function CarCreate() {

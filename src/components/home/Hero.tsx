@@ -1,4 +1,6 @@
-export default function Hero() {
+import { Link } from "react-router-dom"
+
+export default function Hero({ withButton = true }: { withButton?: boolean }) {
     return (
         <>
             <section id="hero" className="hero__background position-relative overflow-hidden">
@@ -10,7 +12,9 @@ export default function Hero() {
                                 Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga
                                 terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.
                             </p>
-                            <a href="cars" className="btn btn-secondary rounded-1">Mulai Sewa Mobil</a>
+                            {withButton && (
+                                <Link to="cars" className="btn btn-secondary rounded-1">Mulai Sewa Mobil</Link>
+                            )}
                         </div>
 
                         <div className="col-12 col-lg-6 z-1 container--car">

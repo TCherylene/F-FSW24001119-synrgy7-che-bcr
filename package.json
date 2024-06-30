@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "flatpickr": "^4.6.13",
     "jquery": "^3.7.1",
     "owl-carousel": "^1.0.0",
     "owl.carousel": "^2.3.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-flatpickr": "^3.10.13",
     "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.23.1",
+    "react-select": "^5.8.0",
     "reactstrap": "^9.2.2"
   },
   "devDependencies": {

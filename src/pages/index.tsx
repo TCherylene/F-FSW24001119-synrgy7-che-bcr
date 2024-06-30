@@ -1,9 +1,10 @@
 import Cars from "./Cars";
-import CarCreate from "./CarCreate";
-import CarLists from "./CarLists";
-import Dashboard from "./Dashboard";
+import CarCreate from "./dashboard/CarCreate";
+import CarLists from "./dashboard/CarLists";
+import Dashboard from "./dashboard/Dashboard";
 import Home from "./Home";
 import Login from "./Login";
+import LoginExample from './LoginExample';
 
 export {
     Cars,
@@ -11,5 +12,6 @@ export {
     CarLists,
     Dashboard,
     Home,
-    Login
+    Login,
+    LoginExample
 }

@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useOutletContext } from "react-router-dom"
-import PageTitle from "../components/general/PageTitle"
+import PageTitle from "../../components/general/PageTitle"
 
 export default function Dashboard() {
     const { setBreadcrumbs } = useOutletContext()
