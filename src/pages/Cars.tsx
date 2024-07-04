@@ -32,7 +32,14 @@ export default function Cars() {
             const dateObj = new Date(dateParam);
             setDate(dateObj);
             setFormattedDate(dateParam);
+        } else {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const dateStr = `${year}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`;
+            setFormattedDate(dateStr);
         }
+
         if (timeParam && time !== timeParam) {
             setTime(timeParam);
         }
@@ -79,7 +86,6 @@ export default function Cars() {
     }
 
     const handleTime = (time: string) => {
-        console.log("handleTime: ", time);
         setTime(time);
         handleDisabled();
     }

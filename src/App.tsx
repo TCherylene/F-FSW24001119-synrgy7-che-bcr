@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import HomeLayouts from "./layout/HomeLayouts"
 import DashboardLayouts from "./layout/DashboardLayouts"
-import { Cars, CarCreate, CarLists, Dashboard, Home, Login, LoginExample } from "./pages"
+import { Cars, CarCreate, CarUpdate, CarLists, Dashboard, Home, Login, LoginExample } from "./pages"
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path="cars">
             <Route index element={<CarLists />} />
             <Route path="create" element={<CarCreate />} />
+            <Route path="update/:id" element={<CarUpdate />} />
           </Route>
 
         </Route>

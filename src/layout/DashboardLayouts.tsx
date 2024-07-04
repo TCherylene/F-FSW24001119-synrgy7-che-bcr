@@ -6,7 +6,7 @@ import SidebarCollapsable from './components/SidebarCollapsable';
 import Breadcrumb from './components/Breadcrumb';
 
 export default function DashboardLayouts() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const [alert, setAlert] = useState(null);
     const [alertColor, setAlertColor] = useState(null);
     const [breadcrumbs, setBreadcrumbs] = useState([]);

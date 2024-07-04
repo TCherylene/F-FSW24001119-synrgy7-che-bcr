@@ -31,7 +31,8 @@ export default function Login() {
             })
         })
         const data = await res.json()
-        login(data.data)
+        console.log(data.message)
+        // login(data.data)
     }
 
     const loginWithGoogle = useGoogleLogin({

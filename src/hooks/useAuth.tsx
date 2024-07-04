@@ -21,14 +21,14 @@ export const AuthProvider = ({ children }: AuthProps) => {
     const [user, setUser] = useLocalStorage("user", null)
     const navigate = useNavigate();
 
-    const login = async(data: object) => {
+    const login = async (data: object) => {
         setUser(data)
-        navigate("/dashboard", { replace:true })
+        navigate("/admin", { replace: true })
     }
 
     const logout = () => {
         setUser(null);
-        navigate("/dashboard/login", { replace:true })
+        navigate("/login", { replace: true })
     }
 
     const value = useMemo(() => ({
