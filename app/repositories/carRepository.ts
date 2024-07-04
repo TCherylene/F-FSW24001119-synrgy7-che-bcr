@@ -58,7 +58,7 @@ export default new class CarRepository {
     }
 
     async findById(id: MaybeCompositeId) {
-        return CarsModel.query().findById(id).select('id', 'name', 'price', 'photo', 'category', 'start_rent', 'finish_rent', 'active')
+        return CarsModel.query().findById(id).select()
             .throwIfNotFound();
     }
 }

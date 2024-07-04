@@ -35,9 +35,10 @@ export async function seed(knex: Knex): Promise<void> {
     let cars: Car[] = response.data;
 
     cars = cars.map(car => {
-        const { rentPerDay, availableAt, ...rest } = car;
+        const { rentPerDay, availableAt, image, ...rest } = car;
         return {
             ...rest,
+            image: image.replace(/^\./, ''),
             rent_per_day: rentPerDay,
             available_at: availableAt,
             driver_type: Math.floor(Math.random() * 2),

@@ -18,9 +18,9 @@ interface Car {
     type: string;
     year: number;
     options: string[];
-    rent_per_day?: number; // Optional, as this will be added later
-    available_at?: string; // Optional, as this will be added later
-    driver_type?: number; // Optional, as this will be added later
+    rent_per_day?: number;
+    available_at?: string;
+    driver_type?: number;
 }
 
 interface Condition {
@@ -44,7 +44,6 @@ async function getCars(req: any, res: Response): Promise<Response> {
                 "message": "Data driver tidak lengkap"
             })
         }
-
 
         console.log(time)
 
@@ -86,23 +85,31 @@ async function getCarsById(req: any, res: Response): Promise<Response> {
 }
 
 async function addCar(req: any, res: Response): Promise<any> {
-    const { name, price, category, start_rent, finish_rent } = req.body;
-    if (!name || !price || !category || !start_rent || !finish_rent || !req.file) {
+    const { plate, manufacture, model, capacity, description, transmission, type, year, options, driver_type, rent_per_day, available_at, specs } = req.body;
+    if (!plate || !manufacture || !model || !capacity || !transmission || !type || !year) {
         return res.status(400).json({ message: "Data tidak lengkap" });
     }
 
     try {
         const fileUpload = await carService.upload(req.file);
         const cars = await carService.create({
-            name,
-            price,
-            category,
-            start_rent,
-            finish_rent,
-            photo: fileUpload.url,
+            plate,
+            manufacture,
+            model,
+            capacity,
+            description,
+            transmission,
+            type,
+            year,
+            options,
+            driver_type,
+            rent_per_day,
+            available_at,
+            specs,
+            image: fileUpload.url,
             created_by: req.user.id,
             updated_by: req.user.id,
-            active: true
+            available: true
         });
 
         return res.status(201).json({
@@ -144,8 +151,8 @@ async function updateCar(req: any, res: Response): Promise<any> {
 async function deleteCar(req: any, res: Response): Promise<Response> {
     const { id } = req.params;
     const updateData = {
-        active: false,
-        updated_by: req.user.id
+        available: false,
+        updated_by: req.user ? req.user.id : 0
     }
 
     await carService.delete(id, updateData);
