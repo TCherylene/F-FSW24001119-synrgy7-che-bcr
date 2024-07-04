@@ -26,11 +26,17 @@ apiRouter.post("/users/admin", authorize, allowAccess([superAdmin]), controllers
 
 // CARS
 apiRouter.get("/cars", controllers.api.cars.getCars);
-apiRouter.get("/cars/:id", authorize, controllers.api.cars.getCarsById);
+// apiRouter.get("/cars/:id", authorize, controllers.api.cars.getCarsById);
+// 
+// apiRouter.post("/cars", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.addCar);
+// apiRouter.put("/cars/:id", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.updateCar);
+// apiRouter.delete("/cars/:id", authorize, allowAccess([admin, superAdmin]), controllers.api.cars.deleteCar);
 
-apiRouter.post("/cars", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.addCar);
-apiRouter.put("/cars/:id", authorize, allowAccess([admin, superAdmin]), multerMemory.single("photo"), controllers.api.cars.updateCar);
-apiRouter.delete("/cars/:id", authorize, allowAccess([admin, superAdmin]), controllers.api.cars.deleteCar);
+// remove allow access
+apiRouter.get("/cars/:id", controllers.api.cars.getCarsById);
+apiRouter.post("/cars", multerMemory.single("photo"), controllers.api.cars.addCar);
+apiRouter.put("/cars/:id", multerMemory.single("photo"), controllers.api.cars.updateCar);
+apiRouter.delete("/cars/:id", controllers.api.cars.deleteCar);
 
 apiRouter.use(controllers.api.main.onLost) //Error404
 apiRouter.use(controllers.api.main.onError) //Error500
