@@ -26,5 +26,5 @@ export class CarsModel extends Model {
 }
 
 export type Cars = ModelObject<CarsModel>;
-export type CreateCarInput = Omit<Cars, 'id' | 'created_at' | 'updated_at'>;
+export type CreateCarInput = Omit<Cars, 'created_at' | 'updated_at'>;
 export type DeleteCarInput = Pick<Cars, 'available' | 'updated_by'>

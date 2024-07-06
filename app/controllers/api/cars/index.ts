@@ -3,26 +3,6 @@ import carService from '../../../services/carService';
 
 const roleUser = 'user';
 
-interface Car {
-    id: string;
-    plate: string;
-    manufacture: string;
-    model: string;
-    image: string;
-    rentPerDay?: number;
-    capacity: number;
-    description: string;
-    availableAt?: string;
-    transmission: string;
-    available: boolean;
-    type: string;
-    year: number;
-    options: string[];
-    rent_per_day?: number;
-    available_at?: string;
-    driver_type?: number;
-}
-
 interface Condition {
     driver_type?: boolean,
     available_at?: any,
@@ -74,7 +54,7 @@ async function getCarsById(req: any, res: Response): Promise<Response> {
     const { id } = req.params;
     try {
         const car = await carService.findById(id);
-        if (req.user.role === roleUser && !car.available) {
+        if (req.user?.role === roleUser && !car.available) {
             return res.status(404).json({ message: "Car not found" });
         }
 
@@ -86,13 +66,22 @@ async function getCarsById(req: any, res: Response): Promise<Response> {
 
 async function addCar(req: any, res: Response): Promise<any> {
     const { plate, manufacture, model, capacity, description, transmission, type, year, options, driver_type, rent_per_day, available_at, specs } = req.body;
+
+    // Check required fields
     if (!plate || !manufacture || !model || !capacity || !transmission || !type || !year) {
         return res.status(400).json({ message: "Data tidak lengkap" });
     }
 
     try {
+        // Upload file and get URL
         const fileUpload = await carService.upload(req.file);
+
+        // Generate UUID for car ID
+        const id = require('uuid').v4();
+
+        // Create car record in the database
         const cars = await carService.create({
+            id,
             plate,
             manufacture,
             model,
@@ -101,34 +90,38 @@ async function addCar(req: any, res: Response): Promise<any> {
             transmission,
             type,
             year,
-            options,
+            options: options, // Convert array to comma-separated string
             driver_type,
             rent_per_day,
             available_at,
-            specs,
+            specs: specs, // Convert array to comma-separated string
             image: fileUpload.url,
-            created_by: req.user.id,
-            updated_by: req.user.id,
+            created_by: req.user?.id ?? 1,
+            updated_by: req.user?.id ?? 1,
             available: true
         });
 
+        // Return success response
         return res.status(201).json({
             message: "Data berhasil ditambahkan",
             data: cars
         });
     } catch (e) {
-        console.error(e)
-        return res.status(500).json({ message: "Gagal menambahkan data" })
+        console.error(e);
+        return res.status(500).json({ message: "Gagal menambahkan data" });
     }
 }
 
 async function updateCar(req: any, res: Response): Promise<any> {
     const { id } = req.params;
+    console.log(id)
+
+    // update
 
     try {
         let updateData = {
             ...req.body,
-            updated_by: req.user.id,
+            updated_by: req.user?.id ?? 1,
         };
 
         if (req.file) {
