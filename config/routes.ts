@@ -9,7 +9,7 @@ import swaggerDocument from '../openapi.json';
 
 const apiRouter = express.Router()
 const superAdmin = 'superadmin'
-const admin = 'admin'
+// const admin = 'admin'
 
 // DOCS
 apiRouter.use('/docs', swaggerUi.serve);

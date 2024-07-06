@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Response, NextFunction } from 'express';
 
 export function allowAccess(allowedRoles: string[]) {
     return (req: any, res: Response, next: NextFunction) => {

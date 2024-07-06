@@ -1,4 +1,4 @@
-import express, { Express, Request, Response, NextFunction } from 'express';
+import express, { Express } from 'express';
 import path from 'path';
 import knex from 'knex'
 import { Model } from 'objection';

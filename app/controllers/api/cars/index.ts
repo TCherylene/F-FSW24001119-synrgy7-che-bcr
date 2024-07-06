@@ -1,5 +1,6 @@
-import { Express, Request, Response } from 'express';
+import { Response } from 'express';
 import carService from '../../../services/carService';
+import { v4 as uuidv4 } from 'uuid';
 
 const roleUser = 'user';
 
@@ -77,7 +78,7 @@ async function addCar(req: any, res: Response): Promise<any> {
         const fileUpload = await carService.upload(req.file);
 
         // Generate UUID for car ID
-        const id = require('uuid').v4();
+        const id = uuidv4();
 
         // Create car record in the database
         const cars = await carService.create({
@@ -114,12 +115,9 @@ async function addCar(req: any, res: Response): Promise<any> {
 
 async function updateCar(req: any, res: Response): Promise<any> {
     const { id } = req.params;
-    console.log(id)
-
-    // update
 
     try {
-        let updateData = {
+        const updateData = {
             ...req.body,
             updated_by: req.user?.id ?? 1,
         };

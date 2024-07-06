@@ -2,7 +2,6 @@ import userService from '../../../services/userService';
 import { Request, Response } from 'express';
 import { encryptPassword, checkPassword, createToken }
     from '../../../utils/encrypt';
-import { UsersModel } from '../../../models/users';
 import dotenv from 'dotenv';
 
 dotenv.config();

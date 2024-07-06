@@ -1,26 +1,26 @@
 import userService from '../../../services/userService';
 import { Request, Response } from 'express';
-import { encryptPassword, checkPassword, createToken } 
-from '../../../utils/encrypt';
+import { encryptPassword }
+    from '../../../utils/encrypt';
 
-async function whoAmI(req:any, res:Response){
+async function whoAmI(req: any, res: Response) {
     res.json({
         message: "Berhasil",
         data: req.user
     })
 }
 
-async function createAdmin(req:Request, res:Response){
-    const {email, password, nama, avatar, role} = req.body;
-    if(!email || !password || !nama ){
+async function createAdmin(req: Request, res: Response) {
+    const { email, password, nama, avatar, role } = req.body;
+    if (!email || !password || !nama) {
         return res.status(400).json({
             message: "Data tidak lengkap"
         })
     }
 
-    try{
+    try {
         const userExist = await userService.checkDuplicate(email);
-        if(userExist){
+        if (userExist) {
             return res.status(409).json({
                 message: "Email sudah terdaftar!"
             })
@@ -45,7 +45,7 @@ async function createAdmin(req:Request, res:Response){
                 updatedAt: user.updated_at
             }
         })
-    } catch(e){
+    } catch (e) {
         res.status(500).json({
             message: "Internal Server Error"
         })
