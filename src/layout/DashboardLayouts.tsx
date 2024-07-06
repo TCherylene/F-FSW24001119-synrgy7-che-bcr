@@ -10,7 +10,7 @@ export default function DashboardLayouts() {
     const [alert, setAlert] = useState(null);
     const [alertColor, setAlertColor] = useState(null);
     const [breadcrumbs, setBreadcrumbs] = useState([]);
-
+    
     const toggle = () => setIsOpen(!isOpen);
     const contextValue = {
         setAlert,

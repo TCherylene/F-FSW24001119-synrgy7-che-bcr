@@ -230,6 +230,12 @@ section.hero__background {
     font-weight: 600;
 }
 
+/* Input Check */
+.form-switch .form-check-input,
+.form-check .form-check-input {
+    margin-left: 0;
+}
+
 /* Filter */
 .filter__container {
     min-height: 6rem;
