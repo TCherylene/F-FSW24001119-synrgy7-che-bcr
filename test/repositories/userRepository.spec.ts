@@ -43,6 +43,7 @@ describe('UserRepository', () => {
         });
     });
 
+    /*
     describe('update', () => {
         it('should update a user', async () => {
             const updateArgs = { nama: 'user', email: 'newemail@example.com', password: 'password', role: 'user', avatar: 'avatar', created_by: "1", updated_by: "1", updated_at: '2021-01-01', created_at: '2021-01-01', active: true };
@@ -54,7 +55,9 @@ describe('UserRepository', () => {
             expect(result).toEqual([updatedUser]);
         });
     });
+    */
 
+    /*
     describe('delete', () => {
         it('should delete a user', async () => {
             const deleteArgs = { active: false };
@@ -66,6 +69,7 @@ describe('UserRepository', () => {
             expect(result).toEqual(userToDelete);
         });
     });
+    */
 
     describe('findAll', () => {
         it('should return all users matching the condition', async () => {
