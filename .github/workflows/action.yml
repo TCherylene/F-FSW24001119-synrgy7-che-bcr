@@ -4,7 +4,6 @@ on:
     pull_request:
         branches:
             - Challenge_8
-            - 8_dev
 
 jobs:
     build:
@@ -38,6 +37,3 @@ jobs:
             
             - name: Run tests
               run: npm test
-            
-            - name: Build project
-              run: npm run build --if-present
