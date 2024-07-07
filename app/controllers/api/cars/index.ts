@@ -3,9 +3,9 @@ import carService from '../../../services/carService';
 import { v4 as uuidv4 } from 'uuid';
 import {
     AllCarRequest,
-    CarByIdRequest, CarBody,
+    CarByIdRequest,
     CarCondition,
-    DataRequest, DeleteCarInput
+    DataRequest, DeleteCarInput, updateCarInput
 } from '../../../../types';
 
 const roleUser = 'user';
@@ -93,8 +93,8 @@ async function addCar(req: DataRequest, res: Response): Promise<Response> {
             available_at,
             specs: specs, // Convert array to comma-separated string
             image: fileUpload.url,
-            created_by: req.user?.id ?? 1,
-            updated_by: req.user?.id ?? 1,
+            created_by: req.user?.id ?? "abc",
+            updated_by: req.user?.id ?? "abc",
             available: true
         });
 
@@ -113,14 +113,14 @@ async function updateCar(req: DataRequest, res: Response): Promise<Response> {
     const { id } = req.params;
 
     try {
-        const updateData: CarBody = {
+        const updateData: updateCarInput = {
             ...req.body,
-            updated_by: req.user?.id ?? 1,
+            updated_by: req.user?.id ?? "abc",
         };
 
         if (req.file) {
             const fileUpload = await carService.upload(req.file);
-            updateData.photo = fileUpload.url;
+            updateData.image = fileUpload.url;
         }
 
         const cars = await carService.update(id, updateData);
@@ -139,7 +139,7 @@ async function deleteCar(req: CarByIdRequest, res: Response): Promise<Response> 
     const { id } = req.params;
     const updateData: DeleteCarInput = {
         available: false,
-        updated_by: req.user ? req.user?.id : 0
+        updated_by: req.user ? req.user?.id : "abc"
     }
 
     await carService.delete(id, updateData);

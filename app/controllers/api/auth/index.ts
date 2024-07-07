@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { encryptPassword, checkPassword, createToken }
     from '../../../utils/encrypt';
 import dotenv from 'dotenv';
+import { v4 as uuidv4 } from 'uuid';
 
 dotenv.config();
 
@@ -24,8 +25,8 @@ async function login(req: Request, res: Response) {
             id: user.id,
             email: user.email,
             role: user.role,
-            createdAt: user.created_at,
-            updatedAt: user.updated_at
+            created_at: user.created_at,
+            updated_at: user.updated_at
         })
 
         res.status(200).json({
@@ -45,8 +46,6 @@ async function login(req: Request, res: Response) {
             message: "Email atau password salah"
         })
     }
-
-
 }
 
 async function register(req: Request, res: Response) {
@@ -59,13 +58,20 @@ async function register(req: Request, res: Response) {
             })
         }
 
+        const id = uuidv4();
         const encryptedPassword = await encryptPassword(password)
         const user = await userService.create({
+            id,
             email,
             password: encryptedPassword,
             nama,
             role: 'user',
-            avatar
+            avatar,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString(),
+            active: true,
+            created_by: id,
+            updated_by: id
         })
 
         res.status(201).json({

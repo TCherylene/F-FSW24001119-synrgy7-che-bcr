@@ -1,14 +1,14 @@
 import { Model, ModelObject } from "objection";
 
 export class UsersModel extends Model {
-    id!: number;
+    id!: string;
     nama!: string;
     email!: string;
     password!: string;
     avatar!: string;
     role!: string;
-    created_by!: number;
-    updated_by!: number;
+    created_by!: string;
+    updated_by!: string;
     created_at!: string;
     updated_at!: string;
     active !: boolean;

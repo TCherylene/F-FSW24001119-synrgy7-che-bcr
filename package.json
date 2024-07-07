@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "migrate:refresh": "npx knex migrate:rollback --all && npx knex migrate:latest && npx knex seed:run",
     "lint": "eslint ."
   },
@@ -43,11 +43,16 @@
   "devDependencies": {
     "@eslint/js": "^9.6.0",
     "@types/bcryptjs": "^2.4.6",
+    "@types/jest": "^29.5.12",
     "@types/multer": "^1.4.11",
     "@types/node": "^20.12.12",
     "@types/pg": "^8.11.6",
+    "@types/uuid": "^10.0.0",
     "eslint": "^9.6.0",
     "globals": "^15.8.0",
+    "jest": "^29.7.0",
+    "jest-mock": "^29.7.0",
+    "ts-jest": "^29.1.5",
     "typescript-eslint": "^7.15.0"
   }
 }

@@ -1,19 +1,18 @@
 import { MaybeCompositeId } from "objection";
 import {
     CarCondition,
-    Cars,
     CarsModel,
     CreateCarInput,
+    updateCarInput,
     DeleteCarInput,
 } from '../../types';
 
-
-export default new class CarRepository {
+class CarRepository {
     async create(data: CreateCarInput): Promise<CreateCarInput> {
         return await CarsModel.query().insert(data);
     }
 
-    async update(id: MaybeCompositeId, updateArgs: Cars) {
+    async update(id: MaybeCompositeId, updateArgs: updateCarInput) {
         return CarsModel.query()
             .where({ id })
             .patch(updateArgs)
@@ -65,3 +64,5 @@ export default new class CarRepository {
             .throwIfNotFound();
     }
 }
+
+export default new CarRepository();

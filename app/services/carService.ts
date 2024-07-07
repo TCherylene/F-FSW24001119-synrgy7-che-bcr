@@ -1,24 +1,26 @@
+import { MaybeCompositeId } from "objection";
+
 import carRepository from "../repositories/carRepository";
 import { cloudinary } from "../middleware/cloudinary";
 import {
-    Cars,
     CarCondition,
     CreateCarInput,
-    DeleteCarInput,
+    updateCarInput,
     MulterFile,
+    DeleteCarInput,
 }
     from '../../types';
 
-export default new class CarService {
+class CarService {
     async create(data: CreateCarInput): Promise<CreateCarInput> {
         return await carRepository.create(data);
     }
 
-    async update(id: string, updateArgs: Cars) {
+    async update(id: MaybeCompositeId, updateArgs: updateCarInput) {
         return carRepository.update(id, updateArgs);
     }
 
-    async delete(id: string, updateArgs: DeleteCarInput) {
+    async delete(id: MaybeCompositeId, updateArgs: DeleteCarInput) {
         return carRepository.delete(id, updateArgs);
     }
 
@@ -26,7 +28,7 @@ export default new class CarService {
         return carRepository.findAll(conditionArgs);
     }
 
-    async findById(id: string) {
+    async findById(id: MaybeCompositeId) {
         return carRepository.findById(id);
     }
 
@@ -37,3 +39,5 @@ export default new class CarService {
         return result
     }
 }
+
+export default new CarService();

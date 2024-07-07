@@ -1,9 +1,7 @@
 import { MaybeCompositeId } from "objection";
-import { Users, UsersModel } from '../models/users';
+import { Users, UserCondition, UsersModel, updateUserInput } from '../../types';
 
-export type user = UsersModel;
-
-export default new class UserRepository {
+class UserRepository {
     async checkDuplicate(email: string) {
         const user = await UsersModel.query().findOne({ email });
         if (user) {
@@ -17,21 +15,15 @@ export default new class UserRepository {
         return await UsersModel.query().insert(data);
     }
 
-    async update(id: MaybeCompositeId, updateArgs: Partial<Users>) {
-        return UsersModel.query()
-            .where({ id })
-            .patch(updateArgs)
-            .throwIfNotFound()
-            .returning("*");
+    async update(id: MaybeCompositeId, updateArgs: updateUserInput) {
+        return UsersModel.query().findById(id).patch(updateArgs).throwIfNotFound().returning("*");
     }
 
-    async delete(id: MaybeCompositeId): Promise<Users> {
-        const userToDelete = await UsersModel.query().findById(id).throwIfNotFound();
-        await UsersModel.query().deleteById(id);
-        return userToDelete;
+    async delete(id: MaybeCompositeId, updateArgs: updateUserInput) {
+        return UsersModel.query().findById(id).patch(updateArgs).throwIfNotFound().returning("*");
     }
 
-    async findAll(conditionArgs: user) {
+    async findAll(conditionArgs: UserCondition) {
         const query = UsersModel.query().where(conditionArgs);
         const [total, data] = await Promise.all([
             query.resultSize(),
@@ -54,3 +46,5 @@ export default new class UserRepository {
         return UsersModel.query().findOne({ email }).throwIfNotFound();
     }
 }
+
+export default new UserRepository();

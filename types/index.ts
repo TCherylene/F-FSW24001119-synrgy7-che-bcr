@@ -14,23 +14,34 @@ export {
 
 // Import Create and Delete Input
 export type Users = TypeUser;
+
 export type CreateCarInput = Omit<Cars, 'created_at' | 'updated_at'>;
 export type DeleteCarInput = Pick<Cars, 'available' | 'updated_by'>;
 
+export interface updateCarInput extends Partial<Cars> {
+    available?: boolean;
+    updated_by?: string;
+}
 
-// Middleware
+export interface updateUserInput extends Partial<Users> {
+    active: boolean;
+}
+
+// Middleware - User
 export interface User {
     role: string;
-    id: number;
+    id: string;
 }
 
 export interface UserMiddlewareRequest extends Request {
     user: User;
 }
 
+// Middleware - Cloudinary
 import { cloudinary } from "../app/middleware/cloudinary";
 export type Cloudinary = typeof cloudinary;
 
+// Middleware - Multer
 interface Multer {
     fieldname: string;
     originalname: string;
@@ -43,8 +54,16 @@ interface Multer {
     buffer: Buffer;
     stream: Readable;
 }
-
 export type MulterFile = Multer;
+
+// Middleware - Encrypt
+export interface TokenPayload {
+    id: string;
+    email: string;
+    role: string;
+    created_at: string;
+    updated_at: string;
+}
 
 // User
 export interface UserAuthorization {
@@ -57,8 +76,14 @@ export interface UserAuthorization {
 }
 
 export interface UserAuthorizationRequest extends Request {
-    user ?: UserAuthorization;
+    user?: UserAuthorization;
 }
+
+export interface UserCondition extends Partial<Users> {
+    email?: string;
+    active?: boolean;
+}
+
 
 // Cars
 export interface CarBody {
@@ -79,8 +104,8 @@ export interface CarBody {
     specs: string[];
     photo?: string;
     available?: boolean;
-    updated_by?: number;
-    created_by?: number;
+    updated_by?: string;
+    created_by?: string;
     created_at?: Date;
     updated_at?: Date;
 }
@@ -109,7 +134,7 @@ export interface CarByIdRequest extends Request<CarParams> {
 
 export interface DataRequest extends Request<CarParams> {
     body: CarBody;
-    file?: MulterFile;
+    file: MulterFile;
     user?: User;
 }
 

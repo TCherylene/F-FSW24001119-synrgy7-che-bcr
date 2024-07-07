@@ -2,23 +2,15 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 
+import { TokenPayload } from '../../types'
+
 dotenv.config()
 
 const salt = 10;
-
-interface TokenPayload {
-    id: string;
-    email: string;
-    role: string;
-    created_at: string;
-    updated_at: string;
-}
-
 // register
 export async function encryptPassword(password: string) {
     const result = await bcrypt.hash(password, salt)
     return result;
-
 }
 
 // login

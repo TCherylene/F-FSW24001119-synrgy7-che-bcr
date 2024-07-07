@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 import { encryptPassword }
     from '../../../utils/encrypt';
 import { UserMiddlewareRequest } from '../../../../types';
+import { v4 as uuidv4 } from 'uuid';
 
 async function whoAmI(req: UserMiddlewareRequest, res: Response) {
     res.json({
@@ -28,12 +29,19 @@ async function createAdmin(req: Request, res: Response) {
         }
 
         const hashPassword = await encryptPassword(password);
+        const id = uuidv4();
         const user = await userService.create({
+            id,
             email,
             password: hashPassword,
             nama,
             avatar,
-            role: role || 'admin'
+            role: role || 'admin',
+            created_by: 'admin',
+            updated_by: 'admin',
+            active: true,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
         });
 
         res.json({

@@ -1,7 +1,6 @@
 import { Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { UsersModel } from '../models/users';
-import { UserAuthorizationRequest} from '../../types';
+import { UsersModel, UserAuthorizationRequest} from '../../types';
 
 export async function authorize(req: UserAuthorizationRequest, res: Response, next: NextFunction) {
     try {
@@ -34,7 +33,6 @@ export async function authorize(req: UserAuthorizationRequest, res: Response, ne
 
         next();
     } catch (err) {
-        console.log(err);
         res.status(401).json({
             message: "Unauthorized"
         });

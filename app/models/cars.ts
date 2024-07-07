@@ -17,8 +17,8 @@ export class CarsModel extends Model {
     specs!: string[];
     description!: string;
     available_at!: Date;
-    created_by!: number;
-    updated_by!: number;
+    created_by!: string;
+    updated_by!: string;
     created_at!: Date;
     updated_at!: Date;
     

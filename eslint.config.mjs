@@ -8,5 +8,5 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  { ignores: ["coverage/", "jest.config.js"] },
+  { ignores: ["coverage/", "jest.config.js", "test"] },
 ];
