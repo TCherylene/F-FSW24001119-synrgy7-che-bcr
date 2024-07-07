@@ -4,7 +4,6 @@ on:
     pull_request:
         branches:
             - Challenge_8
-            - 8_dev
 
 jobs:
     build:
