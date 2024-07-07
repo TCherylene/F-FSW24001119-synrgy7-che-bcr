@@ -7,7 +7,7 @@ const onLost = (req: Request, res: Response) => {
   })
 }
 
-const onError = (err: any, req: Request, res: Response) => {
+const onError = (err: Error, req: Request, res: Response) => {
   res.status(500).json({
     status: "ERROR",
     error: {

@@ -5,6 +5,14 @@ export type carType = Cars;
 export type carInput = CreateCarInput;
 export type carDelete = DeleteCarInput;
 
+interface Condition {
+    driver_type?: number,
+    available_at?: Date,
+    capacity?: number,
+    available?: boolean,
+}
+
+
 export default new class CarRepository {
     async create(data: carInput): Promise<carInput> {
         return await CarsModel.query().insert(data);
@@ -26,7 +34,7 @@ export default new class CarRepository {
             .returning("*");
     }
 
-    async findAll(conditionArgs: any) {
+    async findAll(conditionArgs: Condition) {
         const { driver_type, available_at, capacity, available } = conditionArgs;
         let query = CarsModel.query()
         if (driver_type !== undefined) {

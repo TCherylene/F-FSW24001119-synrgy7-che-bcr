@@ -6,6 +6,14 @@ dotenv.config()
 
 const salt = 10;
 
+interface TokenPayload {
+    id: string;
+    email: string;
+    role: string;
+    created_at: string;
+    updated_at: string;
+}
+
 // register
 export async function encryptPassword(password: string) {
     const result = await bcrypt.hash(password, salt)
@@ -19,7 +27,7 @@ export async function checkPassword(encryptedPassword: string, password: string)
     return result
 }
 
-export async function createToken(payload: any) {
+export async function createToken(payload: TokenPayload) {
     return jwt.sign(payload, process.env.JWT_SECRET, {
         expiresIn: '1800s'
     })

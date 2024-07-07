@@ -2,8 +2,16 @@ import userService from '../../../services/userService';
 import { Request, Response } from 'express';
 import { encryptPassword }
     from '../../../utils/encrypt';
+interface User{
+    role?: string;
+    id?: number;
+}
 
-async function whoAmI(req: any, res: Response) {
+interface CustomRequest extends Request {
+    user?: User;
+}
+
+async function whoAmI(req: CustomRequest, res: Response) {
     res.json({
         message: "Berhasil",
         data: req.user
