@@ -3,8 +3,8 @@ name: Test on PR
 on:
     pull_request:
         branches:
-            - main
-            - develop
+            - Challenge_8
+            - 8_dev
 
 jobs:
     build:

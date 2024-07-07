@@ -7,7 +7,8 @@
     "dev": "ts-node-dev --respawn --transpile-only ./bin/www",
     "test": "jest",
     "migrate:refresh": "npx knex migrate:rollback --all && npx knex migrate:latest && npx knex seed:run",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
