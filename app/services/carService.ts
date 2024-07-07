@@ -1,42 +1,28 @@
-import carRepository, { carType, carInput, carDelete } from "../repositories/carRepository";
-import { Readable } from 'stream';
+import carRepository from "../repositories/carRepository";
 import { cloudinary } from "../middleware/cloudinary";
-
-interface Condition {
-    driver_type?: number,
-    available_at?: Date,
-    capacity?: number,
-    available?: boolean,
+import {
+    Cars,
+    CarCondition,
+    CreateCarInput,
+    DeleteCarInput,
+    MulterFile,
 }
-
-interface MulterFile {
-    fieldname: string;
-    originalname: string;
-    encoding: string;
-    mimetype: string;
-    size: number;
-    destination: string;
-    filename: string;
-    path: string;
-    buffer: Buffer;
-    stream: Readable;
-}
-
+    from '../../types';
 
 export default new class CarService {
-    async create(data: carInput): Promise<carInput> {
+    async create(data: CreateCarInput): Promise<CreateCarInput> {
         return await carRepository.create(data);
     }
 
-    async update(id: string, updateArgs: carType) {
+    async update(id: string, updateArgs: Cars) {
         return carRepository.update(id, updateArgs);
     }
 
-    async delete(id: string, updateArgs: carDelete) {
+    async delete(id: string, updateArgs: DeleteCarInput) {
         return carRepository.delete(id, updateArgs);
     }
 
-    async findAll(conditionArgs: Condition) {
+    async findAll(conditionArgs: CarCondition) {
         return carRepository.findAll(conditionArgs);
     }
 

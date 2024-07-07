@@ -1,21 +1,9 @@
 import { Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { UsersModel } from '../models/users';
+import { UserAuthorizationRequest} from '../../types';
 
-export interface User {
-    id: string;
-    email: string;
-    nama: string;
-    role: string;
-    created_at: string;
-    updated_at: string;
-}
-
-export interface CustomRequest extends Request {
-    user?: User;
-}
-
-export async function authorize(req: CustomRequest, res: Response, next: NextFunction) {
+export async function authorize(req: UserAuthorizationRequest, res: Response, next: NextFunction) {
     try {
         const bearerToken = req.headers.authorization;
         
@@ -26,7 +14,8 @@ export async function authorize(req: CustomRequest, res: Response, next: NextFun
         }
 
         const token = bearerToken.split("Bearer ")[1]; // Ensure bearerToken is defined
-        const tokenPayload = jwt.verify(token, process.env.JWT_SECRET) as jwt.JwtPayload;
+        const secret: string = process.env.JWT_SECRET ?? "secret";
+        const tokenPayload = jwt.verify(token, secret) as jwt.JwtPayload;
 
         const userRecord = await UsersModel.query().findOne({ id: tokenPayload.id }).select('id', 'email', 'nama', 'role', 'created_at', 'updated_at');
 
