@@ -1,5 +1,7 @@
 import userRepository from "../repositories/userRepository";
-import { Users } from '../models/users';
+import {
+    Users
+} from '../../types';
 
 export default new class UserService {
     async checkDuplicate(email: string): Promise<boolean> {

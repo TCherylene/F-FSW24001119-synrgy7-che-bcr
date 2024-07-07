@@ -1,7 +1,7 @@
 import { MaybeCompositeId } from "objection";
 import { Users, UsersModel } from '../models/users';
 
-export type user = Users;
+export type user = UsersModel;
 
 export default new class UserRepository {
     async checkDuplicate(email: string) {

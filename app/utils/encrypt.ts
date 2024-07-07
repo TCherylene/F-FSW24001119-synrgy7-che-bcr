@@ -28,7 +28,8 @@ export async function checkPassword(encryptedPassword: string, password: string)
 }
 
 export async function createToken(payload: TokenPayload) {
-    return jwt.sign(payload, process.env.JWT_SECRET, {
+    const secret: string = process.env.JWT_SECRET ?? "secret"
+    return jwt.sign(payload, secret, {
         expiresIn: '1800s'
     })
 }

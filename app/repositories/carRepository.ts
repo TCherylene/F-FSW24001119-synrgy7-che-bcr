@@ -1,24 +1,19 @@
 import { MaybeCompositeId } from "objection";
-import { CarsModel, Cars, CreateCarInput, DeleteCarInput } from '../models/cars';
-
-export type carType = Cars;
-export type carInput = CreateCarInput;
-export type carDelete = DeleteCarInput;
-
-interface Condition {
-    driver_type?: number,
-    available_at?: Date,
-    capacity?: number,
-    available?: boolean,
-}
+import {
+    CarCondition,
+    Cars,
+    CarsModel,
+    CreateCarInput,
+    DeleteCarInput,
+} from '../../types';
 
 
 export default new class CarRepository {
-    async create(data: carInput): Promise<carInput> {
+    async create(data: CreateCarInput): Promise<CreateCarInput> {
         return await CarsModel.query().insert(data);
     }
 
-    async update(id: MaybeCompositeId, updateArgs: carType) {
+    async update(id: MaybeCompositeId, updateArgs: Cars) {
         return CarsModel.query()
             .where({ id })
             .patch(updateArgs)
@@ -26,7 +21,7 @@ export default new class CarRepository {
             .returning("*");
     }
 
-    async delete(id: MaybeCompositeId, updateArgs: carDelete) {
+    async delete(id: MaybeCompositeId, updateArgs: DeleteCarInput) {
         return CarsModel.query()
             .where({ id })
             .patch(updateArgs)
@@ -34,7 +29,7 @@ export default new class CarRepository {
             .returning("*");
     }
 
-    async findAll(conditionArgs: Condition) {
+    async findAll(conditionArgs: CarCondition) {
         const { driver_type, available_at, capacity, available } = conditionArgs;
         let query = CarsModel.query()
         if (driver_type !== undefined) {

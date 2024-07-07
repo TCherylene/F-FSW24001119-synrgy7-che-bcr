@@ -1,88 +1,20 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import carService from '../../../services/carService';
 import { v4 as uuidv4 } from 'uuid';
-import { Readable } from 'stream';
-import { DeleteCarInput } from '../../../models/cars';
+import {
+    AllCarRequest,
+    CarByIdRequest, CarBody,
+    CarCondition,
+    DataRequest, DeleteCarInput
+} from '../../../../types';
 
 const roleUser = 'user';
-
-interface CarParams {
-    id: string;
-}
-interface CarQuery {
-    driver: string,
-    date: string,
-    time: string,
-    capacity: number
-}
-
-interface Condition {
-    driver_type?: number,
-    available_at?: Date,
-    capacity?: number,
-    available?: boolean,
-}
-
-interface User {
-    role?: string;
-    id?: number;
-}
-
-interface CarsByIdRequest extends Request<CarParams> {
-    user?: User;
-}
-
-interface CarBody {
-    id ?: string;
-    image?: string;
-    plate: string;
-    manufacture: string;
-    model: string;
-    capacity: number;
-    description: string;
-    transmission: string;
-    type: string;
-    year: string;
-    options: string[];
-    driver_type: boolean;
-    rent_per_day: number;
-    available_at: Date;
-    specs: string[];
-    photo?: string;
-    available?: boolean;
-    updated_by?: number;
-    created_by?: number;
-    created_at?: Date;
-    updated_at?: Date;
-}
-
-interface MulterFile {
-    fieldname: string;
-    originalname: string;
-    encoding: string;
-    mimetype: string;
-    size: number;
-    destination: string;
-    filename: string;
-    path: string;
-    buffer: Buffer;
-    stream: Readable;
-}
-
-interface DataRequest extends Request<CarParams> {
-    body: CarBody;
-    file?: MulterFile;
-    user?: User;
-}
-
-type AllCarRequest = Request<Record<string, never>, Record<string, never>, Record<string, never>, CarQuery>;
-
 
 async function getCars(req: AllCarRequest, res: Response): Promise<Response> {
     const { driver, date, time, capacity } = req.query;
     console.log(req.query);
 
-    let condition: Condition = {};
+    let condition: CarCondition = {};
     const driverNumber = parseInt(driver, 10);
     if (driver && date && time) {
         if (driverNumber !== 0 && driverNumber !== 1) {
@@ -115,7 +47,7 @@ async function getCars(req: AllCarRequest, res: Response): Promise<Response> {
     return res.status(200).json(cars);
 }
 
-async function getCarsById(req: CarsByIdRequest, res: Response): Promise<Response> {
+async function getCarsById(req: CarByIdRequest, res: Response): Promise<Response> {
     const { id } = req.params;
     try {
         const car = await carService.findById(id);
@@ -203,7 +135,7 @@ async function updateCar(req: DataRequest, res: Response): Promise<Response> {
     }
 }
 
-async function deleteCar(req: CarsByIdRequest, res: Response): Promise<Response> {
+async function deleteCar(req: CarByIdRequest, res: Response): Promise<Response> {
     const { id } = req.params;
     const updateData: DeleteCarInput = {
         available: false,
