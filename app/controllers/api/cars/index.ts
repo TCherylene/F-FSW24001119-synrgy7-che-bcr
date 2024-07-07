@@ -46,6 +46,7 @@ async function getCars(req: AllCarRequest, res: Response): Promise<Response> {
     return res.status(200).json(cars);
 }
 
+
 async function getCarsById(req: CarByIdRequest, res: Response): Promise<Response> {
     const { id } = req.params;
     try {
