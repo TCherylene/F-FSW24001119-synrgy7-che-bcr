@@ -8,7 +8,7 @@ import {
     DataRequest, DeleteCarInput, updateCarInput
 } from '../../../../types';
 
-const roleUser = 'user';
+// const roleUser = 'user';
 
 async function getCars(req: AllCarRequest, res: Response): Promise<Response> {
     const { driver, date, time, capacity } = req.query;
@@ -32,7 +32,6 @@ async function getCars(req: AllCarRequest, res: Response): Promise<Response> {
             })
         }
         dateTime.setHours(dateTime.getHours() + 7);
-        console.log("datetime: ", dateTime.toISOString());
         condition = {
             driver_type: driverNumber,
             available_at: dateTime,
@@ -51,10 +50,6 @@ async function getCarsById(req: CarByIdRequest, res: Response): Promise<Response
     const { id } = req.params;
     try {
         const car = await carService.findById(id);
-        if (req.user?.role === roleUser && !car.available) {
-            return res.status(404).json({ message: "Car not found" });
-        }
-
         return res.status(200).json(car);
     } catch (e) {
         return res.status(404).json({ message: "Car not found" });
