@@ -4,7 +4,7 @@ import { Readable } from "stream";
 
 // import all the models
 import { Cars as Car, CarsModel } from "../app/models/cars";
-import { Users, UsersModel } from "../app/models/users";
+import { Users as TypeUser, UsersModel } from "../app/models/users";
 
 export type Cars = Car;
 export {
@@ -13,7 +13,7 @@ export {
 };
 
 // Import Create and Delete Input
-export type Users = Users
+export type Users = TypeUser;
 export type CreateCarInput = Omit<Cars, 'created_at' | 'updated_at'>;
 export type DeleteCarInput = Pick<Cars, 'available' | 'updated_by'>;
 
